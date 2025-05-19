@@ -149,7 +149,7 @@ export default function EarningsCalculator() {
           </Card>
 
           <Card className="p-6 shadow-md md:w-[60%] w-full">
-            <div className="mb-4">
+            <div className="mb-4 ">
               <h2 className="text-lg font-semibold mb-4">Rewards Over Time</h2>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
@@ -221,12 +221,12 @@ export default function EarningsCalculator() {
             <div className="h-64">
               <RewardsChart
                 stakingAmount={stakingAmount}
-                expectedPrice={expectedPrice}
+                // expectedPrice={expectedPrice}
                 stakingTime={stakingTime}
               />
             </div>
 
-            <div className="flex justify-center mt-4 space-x-6">
+            {/* <div className="flex justify-center mt-4 space-x-6">
               <div className="flex items-center">
                 <div className="w-3 h-3 rounded-full bg-indigo-500 mr-2"></div>
                 <span className="text-xs">Compounded</span>
@@ -235,7 +235,7 @@ export default function EarningsCalculator() {
                 <div className="w-3 h-3 rounded-full bg-orange-400 mr-2"></div>
                 <span className="text-xs">Non-Compounded</span>
               </div>
-            </div>
+            </div> */}
           </Card>
         </div>
       </div>
