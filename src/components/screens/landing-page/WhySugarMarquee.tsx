@@ -1,0 +1,29 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+
+const WhySugarMarquee = () => {
+  return (
+    <section className="bg-gray-100 py-12 overflow-hidden relative">
+      <div className="text-center mb-6">
+        <h3 className="text-lg font-semibold text-gray-800 uppercase">
+          Better Way To <span className="text-purple-600">Earn</span>
+        </h3>
+      </div>
+
+      <Marquee speed={40} gradient={false} className="gap-16">
+        {[...Array(10)].map((_, idx) => (
+          <div key={idx} className="flex items-center gap-4 px-6">
+            <Image src="/navbar/logo.svg" alt="Sugar Logo" width={60} height={60} />
+            <span className="text-[60px] font-bold text-gray-900">Why Sugar</span>
+            <span className="text-[60px] font-bold text-gray-900">Why Sugar</span>
+          </div>
+        ))}
+      </Marquee>
+    </section>
+  );
+};
+
+export default WhySugarMarquee;

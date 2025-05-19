@@ -17,7 +17,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   reverse = false,
 }) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white py-6">
       <div className="max-w-[1440px] px-8 mx-auto ">
         <div
           className={`flex flex-col ${

@@ -1,7 +1,9 @@
+import BannerSection from "@/components/screens/landing-page/BannerSection";
 import FAQSection from "@/components/screens/landing-page/FAQSection";
 import HeroSection from "@/components/screens/landing-page/HeroSection";
 import InstitutionalStrategy from "@/components/screens/landing-page/InstitutionalStrategy";
 import SavingsCards from "@/components/screens/landing-page/SavingsCard";
+import WhySugarMarquee from "@/components/screens/landing-page/WhySugarMarquee";
 import Footer from "@/components/ui/Footer";
 import InfoSectionProps from "@/components/ui/InfoSectionProps";
 import Navbar from "@/components/ui/Navbar";
@@ -13,6 +15,8 @@ export default function Home() {
       <HeroSection />
       <SavingsCards />
 
+      <BannerSection />
+      <WhySugarMarquee />
       <InfoSectionProps
         title="World"
         subtitle="high Yield"
