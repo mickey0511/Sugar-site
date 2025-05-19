@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 interface InfoSectionProps {
   title: string;
@@ -18,7 +18,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
 }) => {
   return (
     <div className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex flex-col ${
             reverse ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -36,15 +36,16 @@ const InfoSection: React.FC<InfoSectionProps> = ({
 
           {/* Image */}
           <div className="w-full lg:w-1/2">
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-lg">
-              <Image
+            {/* <div className="relative aspect-video w-full rounded-xl shadow-lg"> */}
+            <img src={imageSrc} className="h-full w-full" alt="" />
+              {/* <Image
                 src={imageSrc}
                 alt="Info Image"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+              /> */}
+            {/* </div> */}
           </div>
         </div>
       </div>

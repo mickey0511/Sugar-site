@@ -1,3 +1,4 @@
+import FAQSection from "@/components/screens/landing-page/FAQSection";
 import HeroSection from "@/components/screens/landing-page/HeroSection";
 import InstitutionalStrategy from "@/components/screens/landing-page/InstitutionalStrategy";
 import SavingsCards from "@/components/screens/landing-page/SavingsCard";
@@ -26,7 +27,7 @@ are proud of."
         description="Thanks to blockchain technology, everyone on this planet can use our product in
 a permission less way, regardless of his or her background, social status, or family
 histories. Our motto is Pro Humanities."
-        imageSrc="/hero/world.png"
+        imageSrc="/hero/2nd-props.svg"
         reverse={true}
       />
       <InfoSectionProps
@@ -40,6 +41,7 @@ mishaps."
       />
 
       <InstitutionalStrategy />
+      <FAQSection />
     </div>
   );
 }
