@@ -67,7 +67,7 @@ const SavingsCards: React.FC = () => {
 
   return (
     <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] px-8 mx-auto">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-semibold text-gray-900 leading-tight">
             Earn Rates As <span className="text-[#6B5BD2]">High As 30%</span>{" "}

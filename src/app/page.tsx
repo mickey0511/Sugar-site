@@ -2,6 +2,7 @@ import FAQSection from "@/components/screens/landing-page/FAQSection";
 import HeroSection from "@/components/screens/landing-page/HeroSection";
 import InstitutionalStrategy from "@/components/screens/landing-page/InstitutionalStrategy";
 import SavingsCards from "@/components/screens/landing-page/SavingsCard";
+import Footer from "@/components/ui/Footer";
 import InfoSectionProps from "@/components/ui/InfoSectionProps";
 import Navbar from "@/components/ui/Navbar";
 
@@ -42,6 +43,7 @@ mishaps."
 
       <InstitutionalStrategy />
       <FAQSection />
+      <Footer />
     </div>
   );
 }

@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[70vh] w-full overflow-hidden">
       {/* Container with max-w-screen-2xl (1536px) matching Navbar */}
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 h-full">
+      <div className="mx-auto max-w-[1440px] px-8 h-full">
         {/* Background image - desktop only (right aligned) */}
         <div
           className="hidden md:absolute md:right-0 md:top-0 md:block md:h-full md:w-[50%] lg:w-[55%] xl:w-[60%] bg-cover bg-no-repeat bg-right"

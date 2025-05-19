@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <header className="w-full bg-white shadow-sm">
       {/* Main nav container - centered with max-width */}
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-8">
         <nav className="flex justify-between items-center py-3 md:py-4 relative z-50">
           {/* Left section - logo and nav */}
           <div className="flex items-center gap-6 lg:gap-8">

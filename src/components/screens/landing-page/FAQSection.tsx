@@ -1,5 +1,6 @@
 "use client";
 
+import { Minus, Plus } from "lucide-react";
 import React, { useState } from "react";
 
 const FAQItem = ({
@@ -15,39 +16,31 @@ const FAQItem = ({
 }) => {
   return (
     <div
-      className={`border rounded-lg p-6 mb-4 cursor-pointer transition-all duration-200 ${
+      className={`rounded-lg p-4 md:p-6 mb-4 cursor-pointer transition-all duration-200 ${
         isActive
-          ? "bg-purple-600 border-transparent"
-          : "border-gray-200 hover:bg-gray-50"
+          ? "bg-[#362E94] border-transparent"
+          : "hover:bg-gray-50 border border-gray-200"
       }`}
       onClick={onClick}
     >
       <div className="flex justify-between items-center">
         <h3
-          className={`text-lg font-medium flex-1 ${
+          className={`text-base md:text-lg font-medium flex-1 ${
             isActive ? "text-white" : "text-gray-900"
           }`}
         >
           {question}
         </h3>
-        <svg
+        <div
           className={`w-5 h-5 ml-4 transition-transform duration-200 ${
-            isActive ? "text-white transform rotate-180" : "text-gray-500"
+            isActive ? "text-[#FC8220]" : "text-gray-500"
           }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={isActive ? "M18 12l-6-6-6 6" : "M6 9l6 6 6-6"}
-          />
-        </svg>
+          {isActive ? <Minus size={20} /> : <Plus size={20} />}
+        </div>
       </div>
       {isActive && (
-        <div className="mt-4 text-white">
+        <div className="mt-3 md:mt-4 text-white text-sm md:text-base">
           <p>{answer}</p>
         </div>
       )}
@@ -81,15 +74,15 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto py-16 md:py-24">
-      <div className="flex justify-between gap-20 w-full">
-        <div className=" w-full lg:w-1/2">
-          <h2 className="text-3xl md:text-[40px] font-bold text-gray-900 mb-4">
+    <div className="max-w-[1440px] px-8 mx-auto py-12 md:py-16 lg:py-24">
+      <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 xl:gap-20 w-full">
+        <div className="w-full lg:w-1/2">
+          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-gray-900 mb-3 md:mb-4">
             <span className="text-[#362E94]">Anything</span> That Is Important
             To You Is Important To Us
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Find Answers Fast—Your Questions Matter, And We’re Here To Help.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600">
+            Find Answers Fast—Your Questions Matter, And We&apos;re Here To Help.
           </p>
         </div>
 
