@@ -1,4 +1,5 @@
 import BannerSection from "@/components/screens/landing-page/BannerSection";
+import EarningsCalculator from "@/components/screens/landing-page/EarningsCalculator";
 import FAQSection from "@/components/screens/landing-page/FAQSection";
 import HeroSection from "@/components/screens/landing-page/HeroSection";
 import InstitutionalStrategy from "@/components/screens/landing-page/InstitutionalStrategy";
@@ -14,7 +15,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <SavingsCards />
-
+      <EarningsCalculator />
       <BannerSection />
       <WhySugarMarquee />
       <InfoSectionProps
