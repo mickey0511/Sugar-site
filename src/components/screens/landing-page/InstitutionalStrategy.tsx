@@ -18,7 +18,7 @@ const InstitutionalStrategy = () => {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   // Use intersection observer for the title section
@@ -41,7 +41,7 @@ const InstitutionalStrategy = () => {
           ref={titleRef}
           initial={{ opacity: 0, y: 20 }}
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

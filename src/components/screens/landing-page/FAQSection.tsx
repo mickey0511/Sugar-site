@@ -53,7 +53,7 @@ const FAQItem = ({
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="mt-3 md:mt-4 text-white text-sm md:text-base overflow-hidden"
         >
           <p>{answer}</p>
@@ -105,12 +105,12 @@ const FAQSection = () => {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   const headerVariants = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    show: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
 
   return (

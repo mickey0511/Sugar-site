@@ -29,7 +29,7 @@ const BannerSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 1,
         ease: "easeOut",
       },
     },
@@ -41,7 +41,7 @@ const BannerSection = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8,
+        duration: 1,
         ease: "easeOut",
       },
     },
@@ -53,7 +53,7 @@ const BannerSection = () => {
       scale: 1,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 1,
         ease: "easeOut",
       },
     },
