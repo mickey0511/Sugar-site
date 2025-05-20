@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 // import Image from "next/image";
 
@@ -37,7 +38,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
           {/* Image */}
           <div className="w-full lg:w-1/2">
             {/* <div className="relative aspect-video w-full rounded-xl shadow-lg"> */}
-            <img src={imageSrc} className="h-full w-full" alt="" />
+            <Image width={400} height={400} src={imageSrc} className="h-full w-full" alt="" />
               {/* <Image
                 src={imageSrc}
                 alt="Info Image"

@@ -1,5 +1,6 @@
 import React from "react";
 import { Send, Instagram, Twitter } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,7 +8,9 @@ const Footer = () => {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16 text-center space-y-8">
         {/* Logo */}
         <div className="flex justify-center">
-          <img
+          <Image
+            width={40}
+            height={40}
             src="/navbar/logo.svg"
             alt="Sugar Logo"
             className="h-[101.37px] w-[122.16px]"
