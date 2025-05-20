@@ -8,7 +8,7 @@ export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "ef9fe1d69d8c784f
 if (!projectId) {
   throw new Error('Project ID is not defined')
 }
-//ok
+
 export const networks = [mainnet, bsc , base, polygon , arbitrum] as [AppKitNetwork, ...AppKitNetwork[]]
 
 export const ethersAdapter = new EthersAdapter();
