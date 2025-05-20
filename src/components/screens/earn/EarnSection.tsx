@@ -4,6 +4,7 @@ import React from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 type Product = {
   id: number;
@@ -62,7 +63,13 @@ const EarnSection = () => {
           whileTap={{ scale: 0.95 }}
           className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-50 transition"
         >
-          <img src="/earn/tether.svg" alt="USDT" className="w-5 h-5" />
+          <Image
+            width={50}
+            height={50}
+            src="/earn/tether.svg"
+            alt="USDT"
+            className="w-5 h-5"
+          />
           <span className="text-sm font-medium">USDT</span>
           <ChevronDown size={16} />
         </motion.button>
@@ -137,7 +144,13 @@ const EarnSection = () => {
               >
                 <td className="py-4 px-4 text-start">{product.id}</td>
                 <td className="py-4 px-4 flex items-center justify-start gap-2 font-medium">
-                  <img src="/earn/tether.svg" alt="USDT" className="w-5 h-5" />
+                  <Image
+                    width={50}
+                    height={50}
+                    src="/earn/tether.svg"
+                    alt="USDT"
+                    className="w-5 h-5"
+                  />
                   {product.name}
                 </td>
                 <td className="py-4 px-4 text-center">{product.duration}</td>
