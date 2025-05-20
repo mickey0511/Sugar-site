@@ -19,27 +19,25 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <header className="w-full bg-white shadow-sm">
-      {/* Main nav container - centered with max-width */}
-      <div className="mx-auto max-w-[1440px] px-8">
-        <nav className="flex justify-between items-center py-3 md:py-4 relative z-50">
-          {/* Left section - logo and nav */}
-          <div className="flex items-center gap-6 lg:gap-8">
-            {/* Mobile menu button */}
+    <header className="sticky top-0 z-50 w-full bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
+      <div className="mx-auto max-w-[1800px] px-6 md:px-12 lg:px-20">
+        <nav className="flex items-center justify-between py-3 md:py-4">
+          {/* Left: Logo + Nav */}
+          <div className="flex items-center gap-6 lg:gap-10">
+            {/* Mobile toggle */}
             <button
-              className="md:hidden text-gray-700 cursor-pointer"
+              className="md:hidden text-gray-700"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 
-            {/* Logo - larger on desktop */}
-            <Link href="/" className="flex items-center gap-2">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
               <Image
                 src="/navbar/logo.svg"
                 alt="Logo"
@@ -49,8 +47,8 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop nav links - larger gaps on bigger screens */}
-            <ul className="hidden md:flex gap-6 lg:gap-8 text-sm md:text-base font-medium text-gray-700">
+            {/* Desktop nav */}
+            <ul className="hidden md:flex gap-5 lg:gap-8 text-sm md:text-base font-medium font-poppins text-gray-700">
               {navLinks.map((link) => (
                 <li key={link}>
                   <Link
@@ -66,7 +64,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Right actions - larger on desktop */}
+          {/* Right: Actions */}
           <div className="flex items-center gap-3 sm:gap-4">
             <RoundedIconButton
               text="Connect Wallet"
@@ -79,15 +77,14 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile menu - smoother transitions */}
+      {/* Mobile menu drawer */}
       <div
-        className={`md:hidden fixed inset-y-0 left-0 w-4/5 max-w-xs bg-white shadow-xl z-[5000] transition-all duration-300 ease-out ${
+        className={`fixed inset-y-0 left-0 z-[5000] w-4/5 max-w-xs bg-white shadow-xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="p-5 h-full flex flex-col">
-          {/* Mobile header with close button */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex justify-between items-center mb-8">
             <Link href="/" onClick={() => setIsOpen(false)}>
               <Image
                 src="/navbar/logo.svg"
@@ -97,19 +94,18 @@ const Navbar = () => {
                 className="w-20"
               />
             </Link>
-            <button onClick={toggleMenu} className="p-2">
+            <button onClick={toggleMenu}>
               <X size={28} />
             </button>
           </div>
 
-          {/* Mobile nav links with better spacing */}
-          <ul className="flex-1 flex flex-col gap-5 text-lg font-medium text-gray-700 overflow-y-auto">
+          <ul className="flex-1 flex flex-col gap-5 text-lg font-medium text-gray-700">
             {navLinks.map((link) => (
               <li key={link}>
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
-                  className={`block py-2 hover:text-[#2E2396] transition-colors ${
+                  className={`block py-2 hover:text-[#2E2396] ${
                     link === "Home" ? "text-[#2E2396] font-semibold" : ""
                   }`}
                 >
@@ -119,7 +115,6 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Mobile footer actions */}
           <div className="mt-auto pt-6 border-t border-gray-100">
             <RoundedIconButton
               text="Connect Wallet"
@@ -134,10 +129,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Backdrop - better transition */}
+      {/* Mobile backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-[4000] md:hidden transition-opacity duration-300"
+          className="fixed inset-0 z-[4000] bg-black bg-opacity-50 transition-opacity duration-300 md:hidden"
           onClick={toggleMenu}
         />
       )}

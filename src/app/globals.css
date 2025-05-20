@@ -1,5 +1,15 @@
+@font-face{
+  font-family: Poppins;
+  src: url(../app/fonts/Poppins-Regular.ttf);
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@theme{
+  --font-poppins: Poppins, "sans-serif";
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
