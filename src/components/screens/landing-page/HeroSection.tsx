@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-[88vh] overflow-hidden bg-white">
+    <section className="relative w-full h-[88vh] bg-white">
       {/* Desktop background image */}
       <div
-        className="hidden md:block absolute right-0 top-0 h-full w-1/2 lg:w-[55%] xl:w-[60%] bg-no-repeat bg-cover bg-right"
+        className="hidden lg:block absolute right-0 top-0 h-full w-1/2 lg:w-[55%] xl:w-[60%] bg-no-repeat bg-cover lg:bg-right"
         style={{ backgroundImage: "url('/hero/hero.svg')" }}
       />
 
@@ -29,7 +29,7 @@ const HeroSection = () => {
         </div>
 
         {/* Mobile hero image */}
-        <div className="md:hidden w-full mt-10">
+        <div className="lg:hidden w-full mt-10">
           <Image
             src="/hero/mobile-hero.svg"
             alt="Mobile Hero Image"
