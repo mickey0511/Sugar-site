@@ -1,25 +1,100 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const BannerSection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: 40 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const bannerVariants = {
+    hidden: { scale: 0.98, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
       <div className="max-w-[1440px] px-8 mx-auto">
-        <section className="bg-[#362E94] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center">
+        <motion.section
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={bannerVariants}
+          className="bg-[#362E94] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center"
+        >
           {/* Text Content */}
-          <div className="lg:w-1/2 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">
+          <motion.div
+            variants={containerVariants}
+            className="lg:w-1/2 space-y-4"
+          >
+            <motion.h2
+              variants={textVariants}
+              className="text-3xl md:text-4xl font-bold"
+            >
               Blockchain-As-An-Experience
-            </h2>
-            <p className="text-base md:text-lg text-gray-200">
+            </motion.h2>
+            <motion.p
+              variants={textVariants}
+              className="text-base md:text-lg text-gray-200"
+            >
               We coined BaaE to make powerful Web3 tech invisible to you. We
               manage the complexity so you can enjoy effortless, high-yield
               returns.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Illustration */}
-          <div className="lg:w-1/2 flex justify-center mb-8 lg:mb-0">
+          <motion.div
+            variants={imageVariants}
+            className="lg:w-1/2 flex justify-center mb-8 lg:mb-0"
+          >
             <Image
               width={500}
               height={500}
@@ -27,8 +102,8 @@ const BannerSection = () => {
               alt="Web3 technology illustration"
               className="h-full w-full"
             />
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
       </div>
     </section>
   );
