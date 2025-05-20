@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, Wallet } from "lucide-react";
@@ -41,6 +42,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
@@ -48,7 +50,6 @@ const Navbar = () => {
         <nav className="flex items-center justify-between py-3 md:py-4">
           {/* Left: Logo + Nav */}
           <div className="flex items-center gap-4 md:gap-6 xl:gap-10">
-            {/* <div className="flex items-center gap-6 lg:gap-10"> */}
             {/* Mobile toggle */}
             <button
               className="lg:hidden text-gray-700"
@@ -76,7 +77,9 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     className={`hover:text-[#2E2396] transition-colors duration-200 ${
-                      link.name === "Home" ? "text-[#2E2396] font-semibold" : ""
+                      pathname === link.href
+                        ? "text-[#2E2396] font-semibold"
+                        : ""
                     }`}
                   >
                     {link.name}
@@ -114,7 +117,9 @@ const Navbar = () => {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`block hover:text-[#2E2396] ${
-                    link.name === "Home" ? "text-[#2E2396] font-semibold" : ""
+                    pathname === link.href
+                      ? "text-[#2E2396] font-semibold"
+                      : ""
                   }`}
                 >
                   {link.name}
@@ -124,28 +129,6 @@ const Navbar = () => {
           </ul>
         </div>
       )}
-
-      {/* <div
-        className={`fixed inset-y-0 left-0 z-[5000] top-auto w-[200px] h-fit rounded-br-[30px] max-w-xs bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <ul className="flex-1 flex flex-col gap-2 text-lg font-medium text-gray-700">
-          {navLinks.map((link) => (
-            <li key={link}>
-              <Link
-                href="/"
-                onClick={() => setIsOpen(false)}
-                className={`block py-2 hover:text-[#2E2396] ${
-                  link === "Home" ? "text-[#2E2396] font-semibold" : ""
-                }`}
-              >
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div> */}
     </header>
   );
 };

@@ -9,7 +9,8 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: "Money makes life good.",
-  description: "Sugar is the first Earn protocol designed to maximize the return. Now enjoy the sweetest way to make money on earth.",
+  description:
+    "Sugar is the first Earn protocol designed to maximize the return. Now enjoy the sweetest way to make money on earth.",
 };
 
 export default function RootLayout({
@@ -19,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`${archivo.className} antialiased`}>{children}</body>
     </html>
   );
 }
