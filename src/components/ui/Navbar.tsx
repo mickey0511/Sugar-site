@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
-      <div className="mx-auto lg:max-w-[1800px] w-[100%] px-6 ">
+      <div className="mx-auto max-w-[1800px] px-6 ">
         <nav className="flex items-center justify-between py-3 md:py-4">
           {/* Left: Logo + Nav */}
           <div className="flex items-center gap-4 md:gap-6 xl:gap-10">
