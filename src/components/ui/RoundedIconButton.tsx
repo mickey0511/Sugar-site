@@ -1,13 +1,12 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { useDisconnect, useAppKit, useAppKitNetwork  } from '@reown/appkit/react'
-import { networks } from '@/app/config'
+// import { useDisconnect, useAppKit, useAppKitNetwork  } from '@reown/appkit/react'
+import {  useAppKit  } from '@reown/appkit/react'
 import ContextProvider from "@/app/context";
 
 interface RoundedIconButtonProps {
   text: string;
   Icon?: React.ElementType;
-  onClick?: () => void;
   className?: string;
   iconSize?: number;
   iconColor?: string;
@@ -16,23 +15,22 @@ interface RoundedIconButtonProps {
 const RoundedIconButton: React.FC<RoundedIconButtonProps> = ({
   text,
   Icon = ArrowRight,
-  onClick,
   className = "",
   iconSize = 14,
   iconColor = "#2E2396",
 }) => {
 
-const { disconnect } = useDisconnect();
+// const { disconnect } = useDisconnect();
     const { open } = useAppKit();
-    const { switchNetwork } = useAppKitNetwork();
+    // const { switchNetwork } = useAppKitNetwork();
 
-    const handleDisconnect = async () => {
-      try {
-        await disconnect();
-      } catch (error) {
-        console.error("Failed to disconnect:", error);
-      }
-    }
+    // const handleDisconnect = async () => {
+    //   try {
+    //     await disconnect();
+    //   } catch (error) {
+    //     console.error("Failed to disconnect:", error);
+    //   }
+    // }
 
   return (
     <ContextProvider>
