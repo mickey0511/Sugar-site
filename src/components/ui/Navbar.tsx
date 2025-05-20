@@ -8,13 +8,34 @@ import RoundedIconButton from "./RoundedIconButton";
 import LanguageSelector from "./LanguageSelector";
 
 const navLinks = [
-  "Home",
-  "Earn",
-  "IDO",
-  "Help",
-  "Charity",
-  "Team",
-  "My Account",
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Earn",
+    href: "/earn",
+  },
+  {
+    name: "IDO",
+    href: "/ido",
+  },
+  {
+    name: "Help",
+    href: "/help",
+  },
+  {
+    name: "Charity",
+    href: "/charity",
+  },
+  {
+    name: "Team",
+    href: "/team",
+  },
+  {
+    name: "My Account",
+    href: "/account",
+  },
 ];
 
 const Navbar = () => {
@@ -50,15 +71,15 @@ const Navbar = () => {
 
             {/* Desktop nav */}
             <ul className="hidden lg:flex gap-4 xl:gap-6 text-[clamp(0.75rem,2vw,1rem)] font-medium font-poppins text-gray-700">
-              {navLinks.map((link) => (
-                <li key={link}>
+              {navLinks.map((link, id) => (
+                <li key={id}>
                   <Link
-                    href="/"
+                    href={link.href}
                     className={`hover:text-[#2E2396] transition-colors duration-200 ${
-                      link === "Home" ? "text-[#2E2396] font-semibold" : ""
+                      link.name === "Home" ? "text-[#2E2396] font-semibold" : ""
                     }`}
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -87,16 +108,16 @@ const Navbar = () => {
           }`}
         >
           <ul className="flex flex-col px-6 py-4 gap-5 text-base font-medium text-gray-700">
-            {navLinks.map((link) => (
-              <li key={link}>
+            {navLinks.map((link, id) => (
+              <li key={id}>
                 <Link
-                  href="/"
+                  href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`block hover:text-[#2E2396] ${
-                    link === "Home" ? "text-[#2E2396] font-semibold" : ""
+                    link.name === "Home" ? "text-[#2E2396] font-semibold" : ""
                   }`}
                 >
-                  {link}
+                  {link.name}
                 </Link>
               </li>
             ))}
