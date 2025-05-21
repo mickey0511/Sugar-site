@@ -8,12 +8,16 @@ import WhySugarMarquee from "@/components/screens/landing-page/WhySugarMarquee";
 import Footer from "@/components/ui/Footer";
 import InfoSectionProps from "@/components/ui/InfoSectionProps";
 import Navbar from "@/components/ui/Navbar";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
+      <div className="relative">
       <Navbar />
       <HeroSection />
+      <Image src="/hero/fullback.png" alt="fullback" width={800} height={820} className="absolute top-0 left-0 w-[40vw] h-full z-1 flex-shrink-0"/>
+      </div>
       <SavingsCards />
       <EarningsCalculator />
       <BannerSection />

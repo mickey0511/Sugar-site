@@ -55,23 +55,23 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full my-auto bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
-      <div className="px-25 max-md:px-5 max-[1170px]:pl-8">
+    <header className=" w-full my-auto bg-white z-40 shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
+      <div className="px-50 max-md:px-5 max-[1400px]:px-20 ">
         <nav className="flex items-center justify-between h-[10vh] max-md:h-[7vh]">
           {/* Left: Logo + Nav */}
-          <div className="flex items-center gap-10 max-md:gap-5 ">
+          <div className="flex items-center gap-20 max-md:gap-5 ">
             {/* Mobile toggle */}
             <button
               ref={buttonRef} // ✅ Assign button ref
-              className="min-[1170px]:hidden text-gray-700"
+              className="min-[1170px]:hidden text-gray-700 z-40"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={28} className="max-md:size-5" /> : <Menu size={28} className="max-md:size-5" />}
+              {isOpen ? <X size={28} className="max-md:size-5 z-40" /> : <Menu size={28} className="max-md:size-5 z-40" />}
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0">
+            <Link href="/" className="flex items-center z-40 flex-shrink-0">
               <Image
                 src="/navbar/logo.svg"
                 alt="Logo"
@@ -82,7 +82,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop nav */}
-            <ul className="hidden min-[1170px]:flex gap-7 text-[clamp(0.75rem,2vw,1rem)] font-medium font-poppins text-gray-700">
+            <ul className="hidden min-[1170px]:flex gap-7 max-[1400px]:gap-5 text-[clamp(0.8rem,2vw,1.1rem)] z-40 font-medium font-poppins text-black">
               {navLinks.map((link, id) => (
                 <li key={id}>
                   <Link
@@ -99,7 +99,7 @@ const Navbar = () => {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 z-40">
             <RoundedIconButton
               text="Connect Wallet"
               Icon={Wallet}
@@ -117,14 +117,14 @@ const Navbar = () => {
           ref={menuRef} // ✅ Attach menu ref
           className="lg:hidden absolute top-full left-0 z-40 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100 transition-transform duration-300"
         >
-          <ul className="flex flex-col px-6 py-4 gap-5 text-base font-medium text-gray-700">
+          <ul className="flex flex-col px-6 py-4 gap-5 text-base font-medium z-40 text-gray-700">
             {navLinks.map((link, id) => (
               <li key={id}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`block hover:text-[#2E2396] ${
-                    pathname === link.href ? "text-[#2E2396] font-semibold" : ""
+                    pathname === link.href ? "text-black font-semibold" : ""
                   }`}
                 >
                   {link.name}

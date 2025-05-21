@@ -53,7 +53,7 @@ const SavingsCard: React.FC<SavingsCardProps> = ({
       className="bg-white rounded-[40px] shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
     >
       <div
-        className={`p-6 rounded-[40px] ${backgroundColor} text-gray-800 text-start flex-1`}
+        className={`p-6 rounded-[40px] ${backgroundColor} text-gray-800 text-start flex-1 max-w-[]`}
       >
         <motion.h3
           className="text-xl md:text-2xl font-semibold"
@@ -153,7 +153,7 @@ const SavingsCards: React.FC = () => {
 
   return (
     <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1440px] px-8 mx-auto">
+      <div className="max-w-[1440px] px-20 mx-auto">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -179,7 +179,7 @@ const SavingsCards: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px]"
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
