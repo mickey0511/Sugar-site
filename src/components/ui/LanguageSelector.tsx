@@ -31,7 +31,7 @@ const LanguageSelector = () => {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="flex items-center gap-2 pl-4 pr-2 py-2 bg-[#2E2396] text-white rounded-full text-sm font-medium"
+        className="flex items-center gap-2 pl-4 pr-2 py-2 max-md:py-1 max-md:pr-2 max-md:pl-2 bg-[#2E2396] text-white rounded-full text-sm font-medium"
       >
         {selected.label}
         <Image
@@ -41,8 +41,8 @@ const LanguageSelector = () => {
           height={14}
         />
 
-        <span className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-          <ChevronDown size={16} color="#2E2396" />
+        <span className="w-8 h-8 bg-white rounded-full max-md:size-6 flex items-center justify-center">
+          <ChevronDown size={16} color="#2E2396"  />
         </span>
       </button>
 
@@ -54,7 +54,7 @@ const LanguageSelector = () => {
               onClick={() => handleSelect(lang)}
               className="flex w-full items-center px-3 py-2 hover:bg-gray-100 gap-2"
             >
-              <Image src={lang.flag} alt={lang.label} width={20} height={14} />
+              <Image src={lang.flag} alt={lang.label} width={20} height={14} className="max-md:w-4 max-md:h-3" />
               {lang.label}
             </button>
           ))}
