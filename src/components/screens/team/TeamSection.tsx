@@ -65,6 +65,9 @@ export default function TeamSection() {
                 />
               </div>
 
+
+              
+
               {/* Text content */}
               <div className="w-full md:w-[55%] md:pl-6 flex flex-col">
                 <div className="flex items-center justify-between mb-2">

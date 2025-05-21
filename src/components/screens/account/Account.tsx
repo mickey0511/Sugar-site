@@ -83,6 +83,9 @@ const AccountPage = () => {
     },
   ];
 
+
+  
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-8 h-[80px] pl-10 bg-white text-[#362E94] shadow-[0_6px_16px_rgba(46,35,150,0.06)] flex items-center">
