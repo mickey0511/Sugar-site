@@ -1,9 +1,13 @@
-import EarnSection from "@/components/screens/earn/EarnSection";
+import AccountPage from "@/components/screens/account/Account";
+import Footer from "@/components/ui/Footer";
+import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
   return (
     <div>
-      <EarnSection />
+      <Navbar />
+      <AccountPage />
+      <Footer />
     </div>
   );
 }
