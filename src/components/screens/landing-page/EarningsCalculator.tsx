@@ -38,7 +38,7 @@ export default function EarningsCalculator() {
 
   return (
     <section className="py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1440px] px-8 mx-auto">
+      <div className="max-w-[1440px] px-20 mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold">
             Your Future <span className="text-indigo-600">Earnings</span> At A
@@ -50,7 +50,7 @@ export default function EarningsCalculator() {
           </p>
         </div>
 
-        <div className="flex md:flex-row flex-col w-full gap-6">
+        <div className="flex md:flex-row flex-col w-full gap-5">
           <Card className="p-6 shadow-md md:w-[40%] w-full">
             <div className="mb-6">
               <div className="flex justify-between items-center mb-4">

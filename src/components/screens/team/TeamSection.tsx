@@ -7,6 +7,7 @@ const teamMembers = [
     description:
       "Dillon Song, A Seasoned Crypto Veteran, Has Led Key Roles At OKX, Bybit, And BinanceLIS, Where He Built The Largest U.S. Staking Program With Over $19 TVA and $100M in Profit. With Deep DeFi Expertise And Strong Industry Relationships From Roles At DODO, He Combines Technical Insight And Asset Management Experience To Deliver Top-Tier Yields While Ensuring User Asset Security.",
     image: "/team/1.svg",
+    linkedin: "#"
   },
   {
     name: "MR",
@@ -14,6 +15,7 @@ const teamMembers = [
     description:
       "Web3 Market Operation Expert, Has Served As CMO Of 7 Projects So Far, And Successfully Incubated More Than 20 Web3 Projects From Q-1, Projects Including Layer/ Layer2/DeFi/Garnet/RWA/AL",
     image: "/team/2.svg",
+    linkedin: "#"
   },
   {
     name: "Ray",
@@ -21,6 +23,7 @@ const teamMembers = [
     description:
       "Currently The Head Of Defi At Solv Finance, The Largest BTC Protocol With A TVL Of $28. Previously Served As The Head Of Defi At DODO DEX.",
     image: "/team/3.svg",
+    linkedin: "#"
   },
   {
     name: "JR",
@@ -28,6 +31,7 @@ const teamMembers = [
     description:
       "Previously The Founder And CEO Of TatumJo Where He Raised $50M, And The Product Has Been Used By Tens Of Millions Of End-Users And Processes Billions Of Dollars Worth Of Transactions Per Month.",
     image: "/team/4.svg",
+    linkedin: "#"
   },
 ];
 
@@ -48,28 +52,40 @@ export default function TeamSection() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl flex flex-col md:flex-row p-6 shadow-md text-left hover:shadow-lg transition-all border border-gray-200 h-full"
+              className="bg-white rounded-[32px] flex flex-col md:flex-row p-4 shadow-[0_6px_16px_rgba(46,35,150,0.06)] text-left hover:shadow-lg transition-all border border-gray-100 h-[380px]"
             >
-              {/* Image container - fixed height on mobile, flexible on desktop */}
-              <div className="w-full md:w-1/3 h-48 md:h-auto relative rounded-2xl overflow-hidden mb-4 md:mb-0">
+              {/* Image container */}
+              <div className="w-full md:w-[45%] h-[350px] relative rounded-2xl overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 45vw"
                 />
               </div>
 
               {/* Text content */}
-              <div className="w-full md:w-2/3 md:pl-6 flex flex-col">
-                <p className="text-sm text-gray-500 font-medium mb-1">
-                  {member.title}
-                </p>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <div className="w-full md:w-[55%] md:pl-6 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm text-gray-500 font-medium">
+                    {member.title}
+                  </p>
+                  <a 
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#362E94] hover:text-[#2a2377]"
+                  >
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {member.name}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {member.description}
                 </p>
               </div>
