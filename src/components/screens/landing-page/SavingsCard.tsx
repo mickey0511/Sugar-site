@@ -153,7 +153,7 @@ const SavingsCards: React.FC = () => {
 
   return (
     <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1440px] px-20 mx-auto">
+      <div className="w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"

@@ -73,7 +73,7 @@ export default function RewardsChart({
       type: "area",
       height: 350,
       toolbar: { show: false },
-      zoom: { enabled: false },
+      zoom: { enabled: true },
     },
     dataLabels: { enabled: false },
     stroke: { curve: "smooth", width: 2 },

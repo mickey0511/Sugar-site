@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
-import { ChevronDown, Search } from "lucide-react";
+import React, { useState } from "react";
+import { ChevronDown, Search, Info } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { Switch } from "@/components/ui/switch";
 
 type Product = {
   id: number;
@@ -12,18 +14,57 @@ type Product = {
   duration: string;
   apy: string;
   tvl: string;
+  autoRenew: boolean;
 };
 
 const EarnSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const products: Product[] = [
-    { id: 1, name: "USDT", duration: "30 Days", apy: "30%", tvl: "100" },
-    { id: 2, name: "USDT", duration: "90 Days", apy: "22%", tvl: "1000" },
-    { id: 3, name: "USDT", duration: "180 Days", apy: "18%", tvl: "500" },
-    { id: 4, name: "USDT", duration: "365 Days", apy: "13%", tvl: "1200" },
-  ];
+  const [products, setProducts] = useState<Product[]>([
+    {
+      id: 1,
+      name: "USDT",
+      duration: "30 Days",
+      apy: "30%",
+      tvl: "100",
+      autoRenew: false,
+    },
+    {
+      id: 2,
+      name: "USDT",
+      duration: "90 Days",
+      apy: "22%",
+      tvl: "1000",
+      autoRenew: false,
+    },
+    {
+      id: 3,
+      name: "USDT",
+      duration: "180 Days",
+      apy: "18%",
+      tvl: "500",
+      autoRenew: false,
+    },
+    {
+      id: 4,
+      name: "USDT",
+      duration: "365 Days",
+      apy: "13%",
+      tvl: "1200",
+      autoRenew: false,
+    },
+  ]);
+
+  const toggleAutoRenew = (id: number) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, autoRenew: !product.autoRenew }
+          : product
+      )
+    );
+  };
 
   // Animation variants
   const container = {
@@ -158,7 +199,21 @@ const EarnSection = () => {
                   {product.apy}
                 </td>
                 <td className="py-4 px-4 text-center">{product.tvl}</td>
-                <td className="py-4 px-4 text-end">
+                <td className="py-4 px-4 text-end flex items-center justify-end gap-4">
+                <div className="flex items-center justify-center gap-2">
+                    <span
+                      className={`text-sm ${
+                        product.autoRenew ? "text-[#FC8220]" : "text-gray-500"
+                      }`}
+                    >
+                      Auto renew
+                    </span>
+                    <Switch
+                      checked={product.autoRenew}
+                      onCheckedChange={() => toggleAutoRenew(product.id)}
+                      className="data-[state=checked]:bg-[#FC8220]"
+                    />
+                  </div>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -166,6 +221,34 @@ const EarnSection = () => {
                   >
                     Deposit
                   </motion.button>
+                  <Tooltip.Provider>
+                    <Tooltip.Root>
+                      <Tooltip.Trigger asChild>
+                        <Info
+                          size={16}
+                          className="inline-block ml-1 cursor-help text-gray-400"
+                        />
+                      </Tooltip.Trigger>
+                      <Tooltip.Portal>
+                        <Tooltip.Content
+                          className="bg-white p-4 rounded-xl shadow-lg max-w-xs text-sm text-gray-700 leading-relaxed"
+                          sideOffset={5}
+                        >
+                          <p>
+                            ✅ The earnings could be claimed at the end of each
+                            30 days.
+                          </p>
+                          <p className="mt-2">
+                            ⚠️ You can unstake at the end of month 3,6,9 and the
+                            reward received will be calculated as 13% APY, the
+                            difference will be deducted from your redemption
+                            principal.
+                          </p>
+                          <Tooltip.Arrow className="fill-white" />
+                        </Tooltip.Content>
+                      </Tooltip.Portal>
+                    </Tooltip.Root>
+                  </Tooltip.Provider>
                 </td>
               </motion.tr>
             ))}
