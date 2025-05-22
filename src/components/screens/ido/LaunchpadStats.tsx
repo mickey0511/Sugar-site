@@ -1,126 +1,114 @@
 import React from "react";
+import Image from "next/image";
 
 const stats = [
   {
     label: "Total IDO Volume",
     value: "50,000",
     unit: "USDT",
-    icon: "💰",
+    icon: "/icons/ido-volume.svg",
+    hasToken: true,
   },
   {
     label: "Total Token Supply",
     value: "10,000,000,000,000",
     unit: "",
-    icon: "📈",
+    icon: "/icons/token-supply.svg",
+    hasToken: false,
   },
   {
     label: "Total Deposit",
     value: "50,000",
     unit: "USDT",
-    icon: "💳",
+    icon: "/icons/deposit.svg",
+    hasToken: true,
   },
   {
     label: "IDO Amount",
     value: "500,000,000,000",
     unit: "SUG",
-    icon: "💵",
+    icon: "/icons/ido-amount.svg",
+    hasToken: false,
   },
   {
     label: "FDV",
     value: "1,000,000",
     unit: "USDT",
-    icon: "💎",
+    icon: "/icons/fdv.svg",
+    hasToken: true,
   },
   {
     label: "IDO Amount",
     value: "5.00%",
     unit: "",
-    icon: "🌎",
+    icon: "/icons/percentage.svg",
+    hasToken: false,
   },
   {
     label: "Mint Price",
     value: "0.0000001",
     unit: "USDT/SUG",
-    icon: "💲",
+    icon: "/icons/mint-price.svg",
+    hasToken: false,
   },
 ];
 
 const LaunchpadStats = () => {
   return (
-    <div className="w-full max-w-[1440px] mx-auto p-4 md:p-8 bg-[#f9fafb] rounded-xl shadow-md">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Row 1 */}
-        {stats.slice(0, 3).map((stat, idx) => (
+    <div className="w-full max-w-[1440px] mx-auto p-8 bg-white rounded-[32px] shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Stats Cards */}
+        {stats.slice(0, 7).map((stat, idx) => (
           <div
             key={idx}
-            className="flex flex-col justify-between bg-[#eef2ff] p-4 rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)] min-h-[120px]"
+            className="bg-[#F8F9FF] p-6 rounded-[24px] flex flex-col justify-between min-h-[120px]"
           >
-            <div className="flex items-center gap-2 text-[#362E94] text-sm font-medium">
-              <span>{stat.icon}</span>
-              <span>{stat.label}</span>
+            <div className="flex items-center gap-2">
+              <Image
+                src={stat.icon}
+                alt={stat.label}
+                width={24}
+                height={24}
+                className="text-[#362E94]"
+              />
+              <span className="text-[#362E94] text-sm font-medium">{stat.label}</span>
             </div>
-            <div className="text-end">
-              <div className="text-2xl font-bold text-gray-900">
-                {stat.value}
-              </div>
-              {stat.unit && (
-                <div className="text-sm text-gray-600">{stat.unit}</div>
+            <div className="flex items-center justify-end gap-2">
+              <span className="text-2xl font-bold">{stat.value}</span>
+              {stat.hasToken && (
+                <Image
+                  src="/earn/tether.svg"
+                  alt="USDT"
+                  width={24}
+                  height={24}
+                />
               )}
             </div>
-          </div>
-        ))}
-
-        {/* Row 2 */}
-        {stats.slice(3, 6).map((stat, idx) => (
-          <div
-            key={idx + 3}
-            className="flex flex-col justify-between bg-[#eef2ff] p-4 rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)] min-h-[120px]"
-          >
-            <div className="flex items-center gap-2 text-[#362E94] text-sm font-medium">
-              <span>{stat.icon}</span>
-              <span>{stat.label}</span>
-            </div>
-            <div className="text-end">
-              <div className="text-2xl font-bold text-gray-900">
-                {stat.value}
-              </div>
-              {stat.unit && (
-                <div className="text-sm text-gray-600">{stat.unit}</div>
-              )}
-            </div>
-          </div>
-        ))}
-
-        {/* Row 3 - 2 columns */}
-        <div className="col-span-1 flex flex-col justify-between bg-[#eef2ff] p-4 rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)] min-h-[120px]">
-          <div className="flex items-center gap-2 text-[#362E94] text-sm font-medium">
-            <span>{stats[6].icon}</span>
-            <span>{stats[6].label}</span>
-          </div>
-          <div className="text-end">
-            <div className="text-2xl font-bold text-gray-900">
-              {stats[6].value}
-            </div>
-            {stats[6].unit && (
-              <div className="text-sm text-gray-600">{stats[6].unit}</div>
+            {stat.unit && (
+              <div className="text-end text-sm text-gray-500">{stat.unit}</div>
             )}
           </div>
-        </div>
+        ))}
 
-        <div className="col-span-1 row-span-2 bg-[#eef2ff] p-4 rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)] flex flex-col gap-3 justify-between min-h-[240px]">
-          <label className="text-sm font-medium text-gray-700">FDV</label>
-          <input
-            type="text"
-            className="rounded-xl border border-[#362E94] p-2 focus:outline-none"
-          />
-          <label className="text-sm font-medium text-gray-700">
-            Mint Price
-          </label>
-          <input
-            type="text"
-            className="rounded-xl border border-[#362E94] p-2 focus:outline-none"
-          />
-          <button className="bg-[#362E94] text-white rounded-full py-2 mt-auto">
+        {/* Input Form Card */}
+        <div className="bg-[#F8F9FF] p-6 rounded-[24px] flex flex-col gap-4">
+          <div>
+            <label className="text-sm text-gray-600 mb-2 block">FDV</label>
+            <input
+              type="text"
+              className="w-full h-12 px-4 rounded-2xl border border-[#E5E7EB] focus:outline-none focus:border-[#362E94]"
+              placeholder="Enter FDV"
+            />
+          </div>
+          <div>
+            <label className="text-sm text-gray-600 mb-2 block">Mint Price</label>
+            <input
+              type="text"
+              className="w-full h-12 px-4 rounded-2xl border border-[#E5E7EB] focus:outline-none focus:border-[#362E94]"
+              placeholder="Enter Mint Price"
+            />
+          </div>
+          <button className="w-full h-12 bg-[#362E94] text-white rounded-full mt-2 font-medium hover:bg-[#2a2377] transition-colors">
             Launchpad Contract
           </button>
         </div>
