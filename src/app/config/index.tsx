@@ -4,7 +4,7 @@ import type { AppKitNetwork } from '@reown/appkit/networks'
 
 // Get projectId from https://cloud.reown.com
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "ef9fe1d69d8c784f7c9a62e45068e9bb" // this is a public projectId only to use on localhost
-//hed
+//heddf
 
 if (!projectId) {
   throw new Error('Project ID is not defined')
