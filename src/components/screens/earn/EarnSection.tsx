@@ -99,11 +99,7 @@ const EarnSection = () => {
         <h1 className="text-2xl md:text-3xl font-semibold text-[#362E94]">
           Earn
         </h1>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-50 transition"
-        >
+        <motion.button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-50 transition">
           <Image
             width={50}
             height={50}
@@ -127,10 +123,7 @@ const EarnSection = () => {
         <h2 className="text-lg font-semibold text-gray-700">Product</h2>
 
         <div className="flex items-center gap-4">
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="relative w-full max-w-[240px]"
-          >
+          <motion.div className="relative w-full max-w-[240px]">
             <input
               type="text"
               placeholder="Search"
@@ -142,11 +135,7 @@ const EarnSection = () => {
             />
           </motion.div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1 px-3 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
-          >
+          <motion.button className="flex items-center gap-1 px-3 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition">
             30d
             <ChevronDown size={16} />
           </motion.button>
@@ -162,7 +151,10 @@ const EarnSection = () => {
           className="md:w-full w-[700px] text-sm"
         >
           <thead>
-            <motion.tr variants={fadeIn} className="text-left text-gray-500">
+            <motion.tr
+              variants={fadeIn}
+              className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] text-gray-500"
+            >
               <th className="py-3 px-4">#</th>
               <th className="py-3 px-4 text-start">Stake</th>
               <th className="py-3 px-4 text-center">Duration</th>
@@ -174,14 +166,10 @@ const EarnSection = () => {
           <tbody>
             {products.map((product, index) => (
               <motion.tr
-                key={product.id}
+                key={index}
                 variants={item}
-                transition={{ delay: 0.2 + index * 0.1 }}
+                transition={{ delay: 0.2 }}
                 className="shadow-[0_6px_16px_rgba(46,35,150,0.06)] rounded-xl my-4"
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 20px rgba(46,35,150,0.1)",
-                }}
               >
                 <td className="py-4 px-4 text-start">{product.id}</td>
                 <td className="py-4 px-4 flex items-center justify-start gap-2 font-medium">
@@ -200,7 +188,7 @@ const EarnSection = () => {
                 </td>
                 <td className="py-4 px-4 text-center">{product.tvl}</td>
                 <td className="py-4 px-4 text-end flex items-center justify-end gap-4">
-                <div className="flex items-center justify-center gap-2">
+                  <div className="flex items-center justify-center gap-2">
                     <span
                       className={`text-sm ${
                         product.autoRenew ? "text-[#FC8220]" : "text-gray-500"
@@ -215,7 +203,6 @@ const EarnSection = () => {
                     />
                   </div>
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-[#362E94] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#2a2377] transition"
                   >

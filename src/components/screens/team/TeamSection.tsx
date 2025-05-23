@@ -69,7 +69,7 @@ export default function TeamSection() {
               
 
               {/* Text content */}
-              <div className="w-full md:w-[55%] md:pl-6 flex flex-col">
+              <div className="w-full md:w-[55%] md:pl-6 py-6 flex flex-col">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm text-gray-500 font-medium">
                     {member.title}

@@ -5,50 +5,50 @@ const stats = [
   {
     label: "Total IDO Volume",
     value: "50,000",
-    unit: "USDT",
-    icon: "/icons/ido-volume.svg",
+    unit: "",
+    icon: "/ido/1.svg",
     hasToken: true,
   },
   {
     label: "Total Token Supply",
     value: "10,000,000,000,000",
     unit: "",
-    icon: "/icons/token-supply.svg",
+    icon: "/ido/2.svg",
     hasToken: false,
   },
   {
     label: "Total Deposit",
     value: "50,000",
-    unit: "USDT",
-    icon: "/icons/deposit.svg",
+    unit: "",
+    icon: "/ido/3.svg",
     hasToken: true,
   },
   {
     label: "IDO Amount",
     value: "500,000,000,000",
     unit: "SUG",
-    icon: "/icons/ido-amount.svg",
+    icon: "/ido/4.svg",
     hasToken: false,
   },
   {
     label: "FDV",
     value: "1,000,000",
-    unit: "USDT",
-    icon: "/icons/fdv.svg",
+    unit: "",
+    icon: "/ido/5.svg",
     hasToken: true,
   },
   {
     label: "IDO Amount",
     value: "5.00%",
     unit: "",
-    icon: "/icons/percentage.svg",
+    icon: "/ido/6.svg",
     hasToken: false,
   },
   {
     label: "Mint Price",
     value: "0.0000001",
     unit: "USDT/SUG",
-    icon: "/icons/mint-price.svg",
+    icon: "/ido/7.svg",
     hasToken: false,
   },
 ];
@@ -71,10 +71,17 @@ const LaunchpadStats = () => {
                 height={24}
                 className="text-[#362E94]"
               />
-              <span className="text-[#362E94] text-sm font-medium">{stat.label}</span>
+              <span className="text-[#362E94] text-sm font-medium">
+                {stat.label}
+              </span>
             </div>
-            <div className="flex items-center justify-end gap-2">
-              <span className="text-2xl font-bold">{stat.value}</span>
+            <div className="flex items-center justify-start gap-2">
+              <div>
+                <span className="text-2xl font-bold">{stat.value}</span>
+                {stat.unit && (
+                  <sub className="text-sm ml-2 text-gray-500">{stat.unit}</sub>
+                )}
+              </div>
               {stat.hasToken && (
                 <Image
                   src="/earn/tether.svg"
@@ -84,9 +91,6 @@ const LaunchpadStats = () => {
                 />
               )}
             </div>
-            {stat.unit && (
-              <div className="text-end text-sm text-gray-500">{stat.unit}</div>
-            )}
           </div>
         ))}
 
@@ -101,7 +105,9 @@ const LaunchpadStats = () => {
             />
           </div>
           <div>
-            <label className="text-sm text-gray-600 mb-2 block">Mint Price</label>
+            <label className="text-sm text-gray-600 mb-2 block">
+              Mint Price
+            </label>
             <input
               type="text"
               className="w-full h-12 px-4 rounded-2xl border border-[#E5E7EB] focus:outline-none focus:border-[#362E94]"

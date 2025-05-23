@@ -95,7 +95,16 @@ export default function RewardsChart({
       categories,
       labels: {
         style: { fontSize: "10px" },
+        rotate: 0,  // Set rotation to 0 to keep text straight
+        offsetY: 2, // Add small offset to prevent text overlap
       },
+      axisBorder: {
+        show: true,
+        color: "#f1f1f1"
+      },
+      axisTicks: {
+        show: false
+      }
     },
     yaxis: {
       labels: {
