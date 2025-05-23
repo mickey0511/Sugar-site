@@ -37,7 +37,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-20">
+    <section className=" py-16 px-4 sm:px-6 lg:px-20">
       <div className="max-w-screen-xl mx-auto">
         <h2 className="text-3xl text-center sm:text-4xl font-bold text-gray-900 mb-4">
           Meet The Team

@@ -27,6 +27,10 @@ const HelpHero = () => {
 
   return (
     <section className="relative w-full md:h-[88vh] md:pt-0 pt-20 bg-white overflow-hidden">
+
+       {/* Top inset shadow bar (always visible) */}
+      <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
+
       {/* Animated gradient background */}
       <motion.div
         initial={{ opacity: 0 }}

@@ -56,10 +56,10 @@ const Navbar = () => {
 
   return (
     <header className=" w-full my-auto bg-white z-40 shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
-      <div className="px-50 max-md:px-5 max-[1480px]:px-20 max-[430px]:px-1">
+      <div className="px-50 max-md:px-5 max-[1400px]:px-20 ">
         <nav className="flex items-center justify-between h-[10vh] max-md:h-[7vh]">
           {/* Left: Logo + Nav */}
-          <div className="flex items-center gap-20 max-md:gap-5 max-[430px]:gap-1">
+          <div className="flex items-center gap-20 max-md:gap-5 ">
             {/* Mobile toggle */}
             <button
               ref={buttonRef} // ✅ Assign button ref
@@ -99,14 +99,14 @@ const Navbar = () => {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-3 max-[430px]:gap-1 z-40">
+          <div className="flex items-center gap-3 z-40">
             <RoundedIconButton
               text="Connect Wallet"
               Icon={Wallet}
               iconSize={16}
               className="text-[clamp(0.75rem,2vw,1rem)] px-3"
             />
-            <LanguageSelector/>
+            <LanguageSelector />
           </div>
         </nav>
       </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
       {isOpen && (
         <div
           ref={menuRef} // ✅ Attach menu ref
-          className="lg:hidden absolute top-[10vh] max-md:top-[7vh] left-0 z-40 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100 transition-transform duration-300"
+          className="lg:hidden absolute top-full left-0 z-40 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100 transition-transform duration-300"
         >
           <ul className="flex flex-col px-6 py-4 gap-5 text-base font-medium z-40 text-gray-700">
             {navLinks.map((link, id) => (
