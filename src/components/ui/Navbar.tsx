@@ -115,7 +115,7 @@ const Navbar = () => {
       {isOpen && (
         <div
           ref={menuRef} // ✅ Attach menu ref
-          className="lg:hidden absolute top-full left-0 z-40 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100 transition-transform duration-300"
+          className="lg:hidden absolute top-[10vh] max-md:top-[7vh] left-0 z-40 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100 transition-transform duration-300"
         >
           <ul className="flex flex-col px-6 py-4 gap-5 text-base font-medium z-40 text-gray-700">
             {navLinks.map((link, id) => (
