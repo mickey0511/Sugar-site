@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  title: string;
+  description: string;
+  image: string;
+  linkedin: string;
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: "Dillon Song",
     title: "Co-Founder & CEO",
@@ -35,17 +43,17 @@ const teamMembers = [
   },
 ];
 
-export default function TeamSection() {
+const TeamSection: React.FC = () => {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-20">
-      <div className="max-w-screen-xl mx-auto ">
+      <div className="max-w-screen-xl mx-auto">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-center mb-4">
           Meet The Team
         </h2>
         <p className="text-gray-600 text-center text-base sm:text-lg lg:text-xl max-w-3xl mx-auto mb-12 font-poppins">
           Our Team Is United By The Belief That Nothing Great Is Ever Achieved
-          Without Passion And Enthusiasm. With Strong Roots In Web3, We're
-          Dedicated To Making Our Clients' Lives Sweeter By Providing Easy
+          Without Passion And Enthusiasm. With Strong Roots In Web3, We{'\''}re
+          Dedicated To Making Our Clients{'\''} Lives Sweeter By Providing Easy
           Access To Earning Products.
         </p>
         <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-2 mt-8">
@@ -100,4 +108,6 @@ export default function TeamSection() {
       </div>
     </section>
   );
-}
+};
+
+export default TeamSection;
