@@ -48,7 +48,7 @@ export default function EarningsCalculator() {
 
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-24">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1440px] mx-auto px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Your Future <span className="text-[#6B5BD2]">Earnings</span> At A

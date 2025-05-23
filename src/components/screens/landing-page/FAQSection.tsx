@@ -13,7 +13,7 @@ const FAQItem = ({
   animationVariants,
 }: {
   question: string;
-  answer: string;
+  answer: string | React.ReactElement;
   isActive: boolean;
   onClick: () => void;
   animationVariants?: import("framer-motion").Variants;
@@ -26,7 +26,7 @@ const FAQItem = ({
           ? "bg-[#362E94] border-transparent"
           : "hover:bg-gray-50 border border-gray-200"
       }`}
-      onClick={onClick}
+    
       whileHover={{ scale: isActive ? 1 : 1.02 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >
@@ -41,6 +41,7 @@ const FAQItem = ({
         <motion.div
           animate={{ rotate: isActive ? 180 : 0 }}
           transition={{ duration: 0.3 }}
+          onClick={onClick}
           className={`w-5 h-5 ml-4 ${
             isActive ? "text-[#FC8220]" : "text-gray-500"
           }`}
@@ -56,7 +57,7 @@ const FAQItem = ({
           transition={{ duration: 0.5 }}
           className="mt-3 md:mt-4 text-white text-sm md:text-base overflow-hidden"
         >
-          <p>{answer}</p>
+          {typeof answer === "string" ? <p>{answer}</p> : answer}
         </motion.div>
       )}
     </motion.div>
@@ -78,13 +79,48 @@ const FAQSection = () => {
     },
     {
       question: "The reward is really high. Where does it come from?",
-      answer:
-        "Our rewards come from carefully calculated yield generation strategies across decentralized finance protocols, ensuring sustainable returns while managing risk.",
+      answer: (
+        <div>
+          <p>
+            There&apos;s a common misconception that traditional banks can only
+            offer around 4% APY to customers. In reality, they&apos;re capable
+            of offering well over 10%. Banks often borrow money from customers
+            and the Federal Reserve at near-zero interest, then turn around and
+            lend it back at rates as high as 15%. It&apos;s a deeply flawed and
+            exploitative system.
+          </p>
+          <p className="pt-4">
+            We operate similar to banks, except there&apos;s are 2 major
+            differences:
+          </p>
+          <ol className="pt-4 pl-6 list-decimal">
+            <li className="ml-2">
+              We give the majority of the yield to users, because we believe
+              that&apos;s the right thing to do for our users.
+            </li>
+            <li className="ml-2">
+              The yield is coming from Web 3, instead of Web 2 (for example,
+              your bank, or any similar financial services is Web 2).
+            </li>
+          </ol>
+          <p className="pt-4">
+            We deploy risk-adjusted strategies across blockchain networks such
+            as Ethereum and Solana, helping to advance these ecosystems by
+            providing essential liquidity. In return, we capture the outsized
+            returns that these emerging markets offer.
+          </p>
+          <p className="pt-4">
+            It&apos;s a win-win model—ecosystems gain the liquidity they need to
+            grow, and our users earn exceptional returns that would otherwise be
+            out of reach.
+          </p>
+        </div>
+      ),
     },
     {
       question: "How is the reward paid out?",
       answer:
-        "Rewards are paid out automatically to your account on a daily/weekly/monthly basis (depending on the product) and can be withdrawn at any time.",
+        "Regardless of which scheme you choose, you will receive your reward at the beginning of each month for the reward accrued from the previous month. You can check your accrued reward on the dashboard everyday.",
     },
   ];
 
@@ -122,28 +158,23 @@ const FAQSection = () => {
         variants={container}
         className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 xl:gap-20 w-full"
       >
-        <motion.div
-          variants={headerVariants}
-          className="w-full lg:w-1/2"
-        >
+        <motion.div variants={headerVariants} className="w-full lg:w-1/2">
           <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-gray-900 mb-3 md:mb-4">
             <span className="text-[#362E94]">Anything</span> That Is Important
             To You Is Important To Us
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600">
-            Find Answers Fast—Your Questions Matter, And We&apos;re Here To Help.
+            Find Answers Fast—Your Questions Matter, And We&apos;re Here To
+            Help.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          className="w-full lg:w-1/2"
-        >
+        <motion.div variants={container} className="w-full lg:w-1/2">
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}
               question={faq.question}
-              answer={faq.question}
+              answer={faq.answer}
               isActive={activeIndex === index}
               onClick={() => toggleFAQ(index)}
               animationVariants={item}
