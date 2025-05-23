@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const LaunchpadStats = () => {
   return (
-    <div className="w-full max-w-[1440px] mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-[32px] mb-10 shadow-lg">
+    <div className="w-full max-w-[1280px] mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-[32px] mb-10 shadow-lg">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {/* First Row */}
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/1.svg"
@@ -19,12 +19,12 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">50,000</span>
+            <span className="text-[32px] font-bold">50,000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
 
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] overflow-hidden flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/2.svg"
@@ -37,11 +37,11 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center">
-            <span className="text-xl font-bold">10,000,000,000,000</span>
+            <span className="text-[32px] font-bold">10,000,000,000,000</span>
           </div>
         </div>
 
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/3.svg"
@@ -54,13 +54,13 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">50,000</span>
+            <span className="text-[32px] font-bold">50,000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
 
         {/* Second Row */}
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col overflow-hidden justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/4.svg" alt="IDO Amount" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
@@ -68,24 +68,24 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-xl font-bold">500,000,000,000</span>
+            <span className="text-[32px] font-bold">500,000,000,000</span>
             <span className="text-sm text-gray-500 ml-1">SUG</span>
           </div>
         </div>
 
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/5.svg" alt="FDV" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">FDV</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">1000000</span>
+            <span className="text-[32px] font-bold">1000000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
 
         {/* Form Card */}
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col gap-3 row-span-2 shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col gap-3 row-span-2 shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div>
             <label className="text-sm text-[#362E94] mb-1 block">FDV</label>
             <input
@@ -110,7 +110,7 @@ const LaunchpadStats = () => {
         </div>
 
         {/* Third Row */}
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/6.svg" alt="IDO Amount" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
@@ -118,11 +118,11 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center">
-            <span className="text-xl font-bold">5.00%</span>
+            <span className="text-[32px] font-bold">5.00%</span>
           </div>
         </div>
 
-        <div className="bg-[#F8F9FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/7.svg" alt="Mint Price" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
@@ -130,7 +130,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-xl font-bold">0.0000001</span>
+            <span className="text-[32px] font-bold">0.0000001</span>
             <span className="text-sm text-gray-500 ml-1">USDT/SUG</span>
           </div>
         </div>
