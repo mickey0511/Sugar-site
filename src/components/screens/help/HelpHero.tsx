@@ -40,13 +40,27 @@ const HelpHero = () => {
       />
 
       {/* Desktop background image with parallax effect */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, x: "30%" }}
         animate={isInView ? { opacity: 1, x: "0%" } : {}}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         className="hidden lg:block absolute right-0 top-4 h-full w-1/2 lg:w-[55%] xl:w-[60%] bg-no-repeat bg-cover lg:bg-right"
         style={{ backgroundImage: "url('/help.svg')" }}
-      />
+      /> */}
+              <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 1.8, ease: "easeOut" }}
+          className="hidden md:block absolute top-0 left-[24rem] w-full h-full z-0 pointer-events-none overflow-hidden"
+        >
+          <Image
+            src="/help.svg"
+            alt="Hero Image"
+            layout="fill"
+            className="object-contain object-top"
+            priority
+          />
+        </motion.div>
 
       {/* Main content container */}
       <div className="relative z-10 flex flex-col h-full justify-center px-6 md:px-20 xl:px-32">
@@ -72,7 +86,7 @@ const HelpHero = () => {
               ease: [0.16, 1, 0.3, 1],
               scale: { type: "spring", stiffness: 100 },
             }}
-            className="lg:hidden w-full mt-10"
+            className="md:hidden  w-full mt-10"
           >
             <Image
               src="/help.svg"
