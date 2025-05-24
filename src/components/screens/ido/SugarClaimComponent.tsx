@@ -9,6 +9,7 @@ import {
   DoorClosedLocked,
   UserCheck,
 } from "lucide-react";
+import Image from "next/image";
 
 const SugarClaimComponent = () => {
   const eligibilityItems = [
@@ -30,17 +31,13 @@ const SugarClaimComponent = () => {
   ];
 
   return (
-    <section className="py-12">
-      <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="mb-[70px]">
+      <div className="max-w-[1280px] w-full mx-auto ">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           {/* Image Section */}
-          <div className="w-full md:w-1/2 bg-[#EFF3FF] rounded-3xl overflow-hidden h-auto">
-            <div
-              className="w-full h-full min-h-[100%] bg-[url('/ido/hero-image.svg')] bg-no-repeat bg-center bg-contain p-8"
-              style={{
-                backgroundSize: "contain",
-              }}
-            />
+          <div className="w-[343px] max-md:h-[270px] md:w-1/2  rounded-3xl  mx-auto">
+            <Image src="/ido/hero-image.svg" alt="sugarimage" width={550} height={440}/>
+            
           </div>
 
           {/* Content Section */}
@@ -48,14 +45,14 @@ const SugarClaimComponent = () => {
             {/* Title */}
             <div>
               <h2 className="text-3xl font-bold text-black">Sugar-SUG</h2>
-              <p className="text-gray-600 mt-1">
+              <p className="text-black mt-1 font-poppins font-medium">
                 Sugar Is The First Earn Protocol Designed To Maximize The Return
                 For Users.
               </p>
             </div>
 
             {/* Claim Info */}
-            <div className="flex flex-wrap items-center gap-3 bg-[#EFF3FF] w-fit rounded-2xl p-4">
+            <div className="flex flex-wrap items-center gap-3 bg-[#EFF3FF] w-fit rounded-2xl p-4 shadow-[4px_4px_8px_rgba(108,107,107,0.13)]">
               {[AlarmClock, DoorClosedLocked, BookText].map((Icon, i) => (
                 <div key={i} className="bg-[#362E94] rounded-xl p-3">
                   <Icon className="w-5 h-5 text-white" />
@@ -70,18 +67,18 @@ const SugarClaimComponent = () => {
             {/* Eligibility */}
             <div>
               <h3 className="text-2xl font-semibold text-black mb-4">Eligibility</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 min-[1440px]:grid-cols-3 gap-4 ">
                 {eligibilityItems.map((item, i) => (
                   <div
                     key={i}
-                    className="bg-[#EFF3FF] rounded-2xl p-4 flex items-center gap-3"
+                    className="bg-[#EFF3FF] rounded-2xl p-4 flex items-center gap-3 shadow-[4px_4px_8px_rgba(108,107,107,0.13)]"
                   >
                     <div className="bg-[#362E94] rounded-xl p-3 text-white">
                       {item.icon}
                     </div>
                     <div>
-                      <div className="font-medium text-black">{item.label}</div>
-                      <div className="text-sm text-gray-600">{item.value}</div>
+                      <div className="font-medium text-black truncate">{item.label}</div>
+                      <div className="text-sm text-gray-600 truncate">{item.value}</div>
                     </div>
                   </div>
                 ))}
@@ -89,7 +86,7 @@ const SugarClaimComponent = () => {
             </div>
 
             {/* Connect Wallet Button */}
-            <button className="bg-[#362E94] text-white px-6 py-3 rounded-full text-sm font-medium w-[160px] hover:bg-[#2a2370] transition-colors">
+            <button className="bg-[#362E94] text-white px-6 py-3 rounded-full text-sm font-medium w-[160px] max-lg:w-full hover:bg-[#2a2370] transition-colors">
               Connect Wallet
             </button>
           </div>

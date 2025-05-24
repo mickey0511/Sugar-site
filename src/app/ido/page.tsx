@@ -7,8 +7,10 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      <div className="px-4 sm:px-6 lg:px-20 lg:pt-[70px] lg:pb-14 py-10">
       <SugarClaimComponent />
       <LaunchpadStats />
+      </div>
       <Footer />
     </div>
   );
