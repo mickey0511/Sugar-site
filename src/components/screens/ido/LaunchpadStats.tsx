@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const LaunchpadStats = () => {
   return (
-    <div className="w-full max-w-[1280px] mx-auto p-4 sm:p-6 md:p-8  my-10 bg-white rounded-[40px] shadow-[0px_0px_28.2px_4px_#2864c12b] border-none">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ">
+    <div className="w-full max-w-[1280px] mx-auto p-5 lg:p-[30px]  my-10 bg-white rounded-[40px] shadow-[0px_0px_28.2px_4px_#2864c12b] border-none">
+      <div className="grid grid-cols-1 min-[800px]:grid-cols-2 min-[1280px]:grid-cols-3 gap-4 sm:gap-5 ">
         {/* First Row */}
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/1.svg"
@@ -24,7 +24,7 @@ const LaunchpadStats = () => {
           </div>
         </div>
 
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] overflow-hidden flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] overflow-hidden flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/2.svg"
@@ -41,7 +41,7 @@ const LaunchpadStats = () => {
           </div>
         </div>
 
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image
               src="/ido/3.svg"
@@ -60,7 +60,7 @@ const LaunchpadStats = () => {
         </div>
 
         {/* Second Row */}
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col overflow-hidden justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col overflow-hidden justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/4.svg" alt="IDO Amount" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
@@ -73,7 +73,7 @@ const LaunchpadStats = () => {
           </div>
         </div>
 
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/5.svg" alt="FDV" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">FDV</span>
@@ -85,8 +85,8 @@ const LaunchpadStats = () => {
         </div>
 
         {/* Form Card */}
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col gap-3 row-span-2 shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
-          <div>
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col gap-3 max-[800px]:gap-3 max-[1280px]:gap-15  row-span-3  max-[800px]:row-start-8 min-[1280]:row-span-2 shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
+          <div className=" max-[800px]:mt-0 max-[1280px]:mt-5">
             <label className="text-sm text-[#362E94] mb-1 block">FDV</label>
             <input
               type="text"
@@ -94,7 +94,7 @@ const LaunchpadStats = () => {
               placeholder="Enter FDV"
             />
           </div>
-          <div>
+          <div className="">
             <label className="text-sm text-[#362E94] mb-1 block">
               Mint Price
             </label>
@@ -104,13 +104,13 @@ const LaunchpadStats = () => {
               placeholder="Enter Mint Price"
             />
           </div>
-          <button className="w-full h-10 bg-[#362E94] text-white rounded-xl font-medium mt-auto shadow-[0_4px_16px_rgba(46,35,150,0.2)] hover:shadow-[0_6px_20px_rgba(46,35,150,0.3)] transition-shadow">
+          <button className="w-full h-10 bg-[#362E94] text-white rounded-xl font-medium mt-auto max-[800px]:mt-5 shadow-[0_4px_16px_rgba(46,35,150,0.2)] hover:shadow-[0_6px_20px_rgba(46,35,150,0.3)] transition-shadow">
             Launchpad Contract
           </button>
         </div>
 
         {/* Third Row */}
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/6.svg" alt="IDO Amount" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
@@ -122,7 +122,7 @@ const LaunchpadStats = () => {
           </div>
         </div>
 
-        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
+        <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[7px_7px_8px_rgba(108,107,107,0.13)] transition-shadow">
           <div className="flex items-center gap-2">
             <Image src="/ido/7.svg" alt="Mint Price" width={20} height={20} />
             <span className="text-[#362E94] text-sm font-medium">
