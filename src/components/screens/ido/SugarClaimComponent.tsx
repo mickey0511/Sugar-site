@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-// import Image from "next/image";
 import {
   AlarmClock,
   BookText,
@@ -33,21 +32,19 @@ const SugarClaimComponent = () => {
   return (
     <section className="py-12">
       <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-start gap-10">
+        <div className="flex flex-col md:flex-row gap-10 items-stretch">
           {/* Image Section */}
-          <div className="w-full md:w-1/2 aspect-[4/3] relative rounded-3xl overflow-hidden">
+          <div className="w-full md:w-1/2 bg-[#EFF3FF] rounded-3xl overflow-hidden h-auto">
             <div
-              className="absolute inset-0 bg-[url('/ido/hero-image.svg')] bg-contain bg-no-repeat bg-center p-8"
+              className="w-full h-full min-h-[100%] bg-[url('/ido/hero-image.svg')] bg-no-repeat bg-center bg-contain p-8"
               style={{
                 backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
               }}
             />
           </div>
 
           {/* Content Section */}
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-1/2 space-y-6 flex flex-col justify-between">
             {/* Title */}
             <div>
               <h2 className="text-3xl font-bold text-black">Sugar-SUG</h2>
@@ -58,7 +55,7 @@ const SugarClaimComponent = () => {
             </div>
 
             {/* Claim Info */}
-            <div className="flex flex-wrap items-center gap-3 bg-[#EFF3FF] rounded-2xl p-4">
+            <div className="flex flex-wrap items-center gap-3 bg-[#EFF3FF] w-fit rounded-2xl p-4">
               {[AlarmClock, DoorClosedLocked, BookText].map((Icon, i) => (
                 <div key={i} className="bg-[#362E94] rounded-xl p-3">
                   <Icon className="w-5 h-5 text-white" />
@@ -72,9 +69,7 @@ const SugarClaimComponent = () => {
 
             {/* Eligibility */}
             <div>
-              <h3 className="text-2xl font-semibold text-black mb-4">
-                Eligibility
-              </h3>
+              <h3 className="text-2xl font-semibold text-black mb-4">Eligibility</h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 {eligibilityItems.map((item, i) => (
                   <div

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const LaunchpadStats = () => {
   return (
-    <div className="w-full max-w-[1280px] mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-[32px] mb-10 shadow-lg">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+    <div className="w-full max-w-[1280px] mx-auto p-4 sm:p-6 md:p-8  my-10 bg-white rounded-[40px] shadow-[0px_0px_28.2px_4px_#2864c12b] border-none">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ">
         {/* First Row */}
         <div className="bg-[#EFF3FF] p-4 rounded-[16px] flex flex-col justify-between h-[120px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] transition-shadow">
           <div className="flex items-center gap-2">
