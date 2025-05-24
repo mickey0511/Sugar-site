@@ -42,24 +42,27 @@ const HeroCharity = () => {
           className="absolute inset-0 bg-gradient-to-r from-white to-[rgb(243,243,252)] z-0"
         />
 
-        {/* Desktop Hero Image */}
+        {/* Desktop Hero Image - Improved responsive positioning */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="hidden lg:block absolute top-0 left-[30rem] w-full h-full z-0 pointer-events-none overflow-hidden"
+          className="hidden lg:block absolute top-0 right-0 w-full h-full z-0 pointer-events-none"
         >
-          <Image
-            src="/charity.svg"
-            alt="Hero Image"
-            layout="fill"
-            className="object-contain object-top"
-            priority
-          />
+          <div className="absolute right-0 top-0 h-full w-full max-w-[55%] xl:max-w-[60%]">
+            <Image
+              src="/charity.svg"
+              alt="Hero Image"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="right top"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col h-full justify-center max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-6">
+        <div className="relative z-10 flex flex-col h-full justify-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={ref}
             initial={{ opacity: 0 }}
@@ -94,17 +97,27 @@ const HeroCharity = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Hero Image */}
-          <div className="lg:hidden relative w-full mt-10 z-10">
+          {/* Mobile Hero Image with improved animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 80, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{
+              duration: 1.2,
+              delay: 0.8,
+              ease: [0.16, 1, 0.3, 1],
+              scale: { type: "spring", stiffness: 100 },
+            }}
+            className="lg:hidden relative w-full mt-10 z-10 px-4"
+          >
             <Image
               src="/charity.svg"
               alt="Mobile Hero"
               width={1000}
               height={600}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-contain"
               priority
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Decorative blobs */}
@@ -112,13 +125,13 @@ const HeroCharity = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
           transition={{ duration: 2, delay: 0.5 }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[#6B5BD2] mix-blend-multiply filter blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[#6B5BD2] mix-blend-multiply filter blur-3xl opacity-0"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
           transition={{ duration: 2, delay: 0.7 }}
-          className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-[#2E2396] mix-blend-multiply filter blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-[#2E2396] mix-blend-multiply filter blur-3xl opacity-0"
         />
       </section>
     </div>

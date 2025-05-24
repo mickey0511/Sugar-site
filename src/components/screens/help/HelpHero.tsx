@@ -27,8 +27,7 @@ const HelpHero = () => {
 
   return (
     <section className="relative w-full md:h-[88vh] md:pt-0 pt-20 bg-white overflow-hidden">
-
-       {/* Top inset shadow bar (always visible) */}
+      {/* Top inset shadow bar (always visible) */}
       <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
 
       {/* Animated gradient background */}
@@ -39,28 +38,24 @@ const HelpHero = () => {
         className="absolute inset-0 bg-gradient-to-r from-white to-[#f5f3ff] z-0"
       />
 
-      {/* Desktop background image with parallax effect */}
-      {/* <motion.div
-        initial={{ opacity: 0, x: "30%" }}
-        animate={isInView ? { opacity: 1, x: "0%" } : {}}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden lg:block absolute right-0 top-4 h-full w-1/2 lg:w-[55%] xl:w-[60%] bg-no-repeat bg-cover lg:bg-right"
-        style={{ backgroundImage: "url('/help.svg')" }}
-      /> */}
-              <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1.8, ease: "easeOut" }}
-          className="hidden md:block absolute top-0 left-[24rem] w-full h-full z-0 pointer-events-none overflow-hidden"
-        >
+      {/* Desktop background image with proper responsive positioning */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+        className="hidden md:block absolute top-0 right-0 w-full h-full z-0 pointer-events-none"
+      >
+        <div className="absolute right-0 top-0 h-full w-full max-w-[55%] xl:max-w-[60%]">
           <Image
             src="/help.svg"
             alt="Hero Image"
             layout="fill"
-            className="object-contain object-top"
+            objectFit="contain"
+            objectPosition="right top"
             priority
           />
-        </motion.div>
+        </div>
+      </motion.div>
 
       {/* Main content container */}
       <div className="relative z-10 flex flex-col h-full justify-center px-6 md:px-20 xl:px-32">
@@ -76,7 +71,7 @@ const HelpHero = () => {
             the best interests of our clients
           </h1>
 
-          {/* Mobile hero image with more sophisticated animation */}
+          {/* Mobile hero image with responsive adjustments */}
           <motion.div
             initial={{ opacity: 0, y: 80, scale: 0.95 }}
             animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
@@ -86,7 +81,7 @@ const HelpHero = () => {
               ease: [0.16, 1, 0.3, 1],
               scale: { type: "spring", stiffness: 100 },
             }}
-            className="md:hidden  w-full mt-10"
+            className="md:hidden w-full mt-10 px-4"
           >
             <Image
               src="/help.svg"
