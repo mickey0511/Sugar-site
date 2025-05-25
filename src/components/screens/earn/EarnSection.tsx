@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ChevronDown, Search, Info } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Switch } from "@/components/ui/switch";
@@ -17,34 +15,8 @@ type Product = {
   autoRenew: boolean;
 };
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      ease: "easeOut",
-      duration: 0.4,
-    },
-  },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 12 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ease: "easeOut",
-      duration: 0.4,
-    },
-  },
-};
-
-
 const EarnSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const [products, setProducts] = useState<Product[]>([
     {
@@ -91,183 +63,136 @@ const EarnSection = () => {
     );
   };
 
-  // Animation variants
-  // const container = {
-  //   hidden: { opacity: 0 },
-  //   show: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.1,
-  //     },
-  //   },
-  // };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
-  // const fadeIn = {
-  //   hidden: { opacity: 0 },
-  //   show: { opacity: 1, transition: { duration: 0.8 } },
-  // };
-
-  return (<div className="bg-[#FBFBFB]">
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-16 max-lg:py-12  ">
-      {/* Header with animation */}
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "show" : "hidden"}
-        variants={item}
-        className="flex justify-between bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] border-gray-100 rounded-xl p-4 items-center mb-6"
-      >
-        <h1 className="text-2xl md:text-3xl font-semibold text-[#362E94]">
-          Earn
-        </h1>
-        <motion.button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-50 transition">
-          <Image
-            width={50}
-            height={50}
-            src="/earn/tether.svg"
-            alt="USDT"
-            className="w-5 h-5"
-          />
-          <span className="text-sm font-medium">USDT</span>
-          <ChevronDown size={16} />
-        </motion.button>
-      </motion.div>
-
-      {/* Product Title Row with animation */}
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "show" : "hidden"}
-        variants={item}
-        transition={{ delay: 0.1 }}
-        className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4"
-      >
-        <h2 className="text-lg sm:text-xl font-semibold text-gray-700">Product</h2>
-
-        <div className="flex items-center gap-4 bg-white">
-          <motion.div className="relative w-full max-w-[240px]">
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none bg-white focus:ring-2 focus:ring-[#362E94] text-sm"
+  return (
+    <div className="bg-[#FBFBFB]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-16 max-lg:py-12 relative">
+        <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
+        {/* Header */}
+        <div className="flex justify-between bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] border-gray-100 rounded-xl p-4 items-center mb-6">
+          <h1 className="text-2xl md:text-3xl font-semibold text-[#362E94]">Earn</h1>
+          <button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-50 transition">
+            <Image
+              width={50}
+              height={50}
+              src="/earn/tether.svg"
+              alt="USDT"
+              className="w-5 h-5"
             />
-            <Search
-              size={18}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-            />
-          </motion.div>
-
-          <motion.button className="flex items-center gap-1 px-3 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition">
-            30d
+            <span className="text-sm font-medium">USDT</span>
             <ChevronDown size={16} />
-          </motion.button>
+          </button>
         </div>
-      </motion.div>
 
-      {/* Table container */}
-      <div ref={ref} className="overflow-x-auto rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
-        <motion.table
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          variants={container}
-          className="md:w-full w-[700px] text-sm sm:text-base rounded-xl px-5 overflow-hidden"
-        >
-          <thead>
-            <motion.tr
-              variants={fadeInUp}
-              className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] bg-white text-gray-500"
-            >
-              <th className="py-6 px-4">#</th>
-              <th className="py-6 px-4 text-start">Stake</th>
-              <th className="py-6 px-4 text-center">Duration</th>
-              <th className="py-6 px-4 text-center">APY</th>
-              <th className="py-6 px-4 text-center">TVL</th>
-              <th className="py-6 px-4"></th>
-            </motion.tr>
-          </thead>
-          <tbody>
-            {products.map((product, index) => (
-              <motion.tr
-                key={index}
-                variants={item}
-                transition={{ delay: 0.2 }}
-                className=" bg-white border-t-gray-100 border-t-4"
-              >
-                <td className="py-4 pl-6 text-start">{product.id}</td>
-                <td className="py-4 px-4  font-medium ">
-                  <Image
-                    width={50}
-                    height={50}
-                    src="/earn/tether.svg"
-                    alt="USDT"
-                    className="w-5 h-5 inline-block mr-2"
-                  />
-                  {product.name}
-                </td>
-                <td className="py-6 px-4 text-center">{product.duration}</td>
-                <td className="py-6 px-4 font-semibold text-center">
-                  {product.apy}
-                </td>
-                <td className="py-6 px-4 text-center">{product.tvl}</td>
-                <td className="py-6 px-4 text-end flex items-center justify-end gap-4">
-                  <div className="flex items-center justify-center gap-2">
-                    <span
-                      className={`text-sm ${
-                        product.autoRenew ? "text-[#FC8220]" : "text-gray-500"
-                      }`}
-                    >
-                      Auto renew
-                    </span>
-                    <Switch
-                      checked={product.autoRenew}
-                      onCheckedChange={() => toggleAutoRenew(product.id)}
-                      className="data-[state=checked]:bg-[#FC8220]"
+        {/* Product Title Row */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+          <h2 className="text-lg font-semibold text-gray-700">Product</h2>
+          <div className="flex items-center gap-4 bg-white">
+            <div className="relative w-full max-w-[240px]">
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none bg-white focus:ring-2 focus:ring-[#362E94] text-sm"
+              />
+              <Search
+                size={18}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              />
+            </div>
+            <button className="flex items-center gap-1 px-3 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition">
+              30d
+              <ChevronDown size={16} />
+            </button>
+          </div>
+        </div>
+
+        {/* Table */}
+        <div ref={ref} className="overflow-x-auto rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
+          <table className="md:w-full w-[700px] text-sm rounded-xl px-5">
+            <thead>
+              <tr className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] bg-white text-gray-500">
+                <th className="py-6 px-4">#</th>
+                <th className="py-6 px-4 text-start">Stake</th>
+                <th className="py-6 px-4 text-center">Duration</th>
+                <th className="py-6 px-4 text-center">APY</th>
+                <th className="py-6 px-4 text-center">TVL</th>
+                <th className="py-6 px-4"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr
+                  key={product.id}
+                  className="bg-white border-t-gray-100 border-t-4"
+                >
+                  <td className="py-4 px-5 text-start">{product.id}</td>
+                  <td className="py-4 px-4 font-medium">
+                    <Image
+                      width={50}
+                      height={50}
+                      src="/earn/tether.svg"
+                      alt="USDT"
+                      className="w-5 h-5 inline-block mr-2"
                     />
-                  </div>
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#362E94] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#2a2377] transition"
-                  >
-                    Deposit
-                  </motion.button>
-                  <Tooltip.Provider>
-                    <Tooltip.Root>
-                      <Tooltip.Trigger asChild>
-                        <Info
-                          size={16}
-                          className="inline-block ml-1 cursor-help text-gray-400"
-                        />
-                      </Tooltip.Trigger>
-                      <Tooltip.Portal>
-                        <Tooltip.Content
-                          className="bg-white p-4 rounded-xl shadow-lg max-w-xs text-sm text-gray-700 leading-relaxed"
-                          sideOffset={5}
-                        >
-                          <p>
-                            ✅ The earnings could be claimed at the end of each
-                            30 days.
-                          </p>
-                          <p className="mt-2">
-                            ⚠️ You can unstake at the end of month 3,6,9 and the
-                            reward received will be calculated as 13% APY, the
-                            difference will be deducted from your redemption
-                            principal.
-                          </p>
-                          <Tooltip.Arrow className="fill-white" />
-                        </Tooltip.Content>
-                      </Tooltip.Portal>
-                    </Tooltip.Root>
-                  </Tooltip.Provider>
-                </td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </motion.table>
+                    {product.name}
+                  </td>
+                  <td className="py-6 px-4 text-center">{product.duration}</td>
+                  <td className="py-6 px-4 font-semibold text-center">
+                    {product.apy}
+                  </td>
+                  <td className="py-6 px-4 text-center">{product.tvl}</td>
+                  <td className="py-6 px-4 text-end flex items-center justify-end gap-4">
+                    <div className="flex items-center justify-center gap-2">
+                      <span
+                        className={`text-sm ${
+                          product.autoRenew ? "text-[#FC8220]" : "text-gray-500"
+                        }`}
+                      >
+                        Auto renew
+                      </span>
+                      <Switch
+                        checked={product.autoRenew}
+                        onCheckedChange={() => toggleAutoRenew(product.id)}
+                        className="data-[state=checked]:bg-[#FC8220]"
+                      />
+                    </div>
+                    <button className="bg-[#362E94] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#2a2377] transition">
+                      Deposit
+                    </button>
+                    <Tooltip.Provider>
+                      <Tooltip.Root>
+                        <Tooltip.Trigger asChild>
+                          <Info
+                            size={16}
+                            className="inline-block ml-1 cursor-help text-gray-400"
+                          />
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="bg-white p-4 rounded-xl shadow-lg max-w-xs text-sm text-gray-700 leading-relaxed"
+                            sideOffset={5}
+                          >
+                            <p>
+                              ✅ The earnings could be claimed at the end of each
+                              30 days.
+                            </p>
+                            <p className="mt-2">
+                              ⚠️ You can unstake at the end of month 3,6,9 and the
+                              reward received will be calculated as 13% APY, the
+                              difference will be deducted from your redemption
+                              principal.
+                            </p>
+                            <Tooltip.Arrow className="fill-white" />
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </Tooltip.Provider>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

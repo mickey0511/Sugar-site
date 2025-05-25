@@ -1,26 +1,13 @@
 "use client";
 
 import { ArrowRight, HelpCircle } from "lucide-react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
 const ReferralSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <section className=" py-12 md:py-20 lg:py-24 bg-[#EFF3FF]">
+    <section className="py-12 md:py-20 lg:py-24 bg-[#EFF3FF]">
       <div className="max-w-[1440px] px-4 sm:px-6 lg:px-20 mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="bg-[#362E94] rounded-2xl relative p-8 md:p-10 shadow-lg flex flex-col lg:flex-row items-center gap-10"
-        >
+        <div className="bg-[#362E94] rounded-2xl relative p-8 md:p-10 shadow-lg flex flex-col lg:flex-row items-center gap-10">
           {/* Left Side Content */}
           <div className="flex-1 w-full">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
@@ -61,16 +48,16 @@ const ReferralSection = () => {
           </div>
 
           {/* Right Side Image */}
-          <div className="flex-1  w-full">
+          <div className="flex-1 w-full">
             <Image
-              src="/earn/referral.svg" // Replace with your uploaded image path
+              src="/earn/referral.svg"
               alt="Referral illustration"
               width={500}
               height={400}
               className="mx-auto"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
