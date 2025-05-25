@@ -33,13 +33,15 @@ const HelpHero = () => {
 
 
       {/* Main content container */}
-      <div className=" z-10 flex flex-row h-full justify-center pl-6 md:pl-10 xl:pl-32 max-sm:px-0">
+      <div  style={{
+    backgroundImage: "linear-gradient(to left, #eff3ff, transparent)",
+  }} className=" z-10 flex flex-row h-full justify-center pl-6 md:pl-10 xl:pl-32 max-sm:px-0">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="md:max-w-1/2 space-y-6 pb-6 text-left w-full "
+          className="md:x-1/2 space-y-6 pb-6 text-left w-full max-w-[700px]"
         >
           <h1 className="text-4xl md:text-[40px] font-bold leading-tight capitalize text-black overflow-hidden max-sm:px-4 max-md:pr-6 px-0 md:mt-[105px]">
             <span className="text-[#2E2396]">We are committed </span> to serving
@@ -60,7 +62,7 @@ const HelpHero = () => {
             />
           </div>
 
-          <form action="" className="flex flex-col gap-4 min-md:max-w-[80%] max-sm:px-4 max-md:mr-6">
+          <form action="" className="flex flex-col gap-4 min-md:max-w-[80%] max-sm:px-4 max-md:mr-6 ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="">First Name</label>
@@ -114,7 +116,7 @@ const HelpHero = () => {
             </span>
           </button>
         </motion.div>
-        <div className="w-[50vw] h-full max-md:hidden">
+        <div className="w-full h-full max-md:hidden">
         <Image
           src="/help.svg"
           alt="Hero Image"
