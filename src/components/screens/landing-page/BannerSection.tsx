@@ -60,29 +60,29 @@ const BannerSection = () => {
   };
 
   return (
-    <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
+    <section className="bg-white py-8 md:py-10 lg:py-12">
       <div className="max-w-[1440px] px-8 mx-auto">
         <motion.section
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={bannerVariants}
-          className="bg-[#362E94] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center"
+          className="bg-[#5b55c6] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center"
         >
           {/* Text Content */}
           <motion.div
             variants={containerVariants}
-            className="lg:w-1/2 space-y-4"
+            className="lg:w-1/2 space-y-6"
           >
             <motion.h2
               variants={textVariants}
-              className="text-3xl md:text-4xl font-bold"
+              className="text-4xl md:text-[60px] font-bold"
             >
               Blockchain-As-An-Experience
             </motion.h2>
             <motion.p
               variants={textVariants}
-              className="text-base md:text-lg text-gray-200"
+              className="text-base md:text-lg text-gray-200 font-poppins"
             >
               We coined BaaE to make powerful Web3 tech invisible to you. We
               manage the complexity so you can enjoy effortless, high-yield

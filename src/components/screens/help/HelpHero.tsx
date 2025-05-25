@@ -62,7 +62,7 @@ const HelpHero = () => {
             />
           </div>
 
-          <form action="" className="flex flex-col gap-4 min-md:max-w-[80%] max-sm:px-4 max-md:mr-6 ">
+          <form action="" className="flex flex-col gap-4 min-md:max-w-[80%] max-sm:px-4 max-md:mr-6 max-sm:mr-0">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="">First Name</label>
@@ -108,7 +108,7 @@ const HelpHero = () => {
             </div>
           </form>
           <button
-            className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-2 max-md:px-4 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78]`}
+            className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-2 max-sm:ml-4 max-md:px-4 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78]`}
           >
             <span className="truncate">Send help</span>
             <span className="w-8 h-8 max-md:size-6 bg-white rounded-full flex items-center justify-center">

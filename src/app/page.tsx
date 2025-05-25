@@ -20,7 +20,7 @@ export default function Home() {
       </div>
       <SavingsCards />
       <EarningsCalculator />
-      <BannerSection />
+      
       <WhySugarMarquee />
       <InfoSectionProps
         title="World"
@@ -49,7 +49,7 @@ mishaps."
         imageSrc="/hero/3rd-props.svg"
         reverse={false}
       />
-
+<BannerSection />
       <InstitutionalStrategy />
       <FAQSection />
       <Footer />

@@ -34,7 +34,7 @@ const InstitutionalStrategy = () => {
   });
 
   return (
-    <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
+    <section className="bg-white py-12 md:py-20 lg:py-24">
       <div className="max-w-[1440px] px-8 mx-auto">
         {/* Animated title section */}
         <motion.div

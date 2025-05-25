@@ -23,7 +23,7 @@ const FAQItem = ({
       variants={animationVariants}
       className={`rounded-lg p-4 md:p-6 mb-4 cursor-pointer transition-all duration-200 ${
         isActive
-          ? "bg-[#362E94] border-transparent"
+          ? "bg-[#524cbb] border-transparent"
           : "hover:bg-gray-50 border border-gray-200"
       }`}
     
