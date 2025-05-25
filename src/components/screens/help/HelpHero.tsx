@@ -26,7 +26,7 @@ const HelpHero = () => {
   }, [isInView]);
 
   return (
-    <section className="relative w-full md:h-[90vh] md:pt-0 pt-10 bg-white overflow-hidden">
+    <section className="relative w-full md:h-[90vh]  bg-white overflow-hidden">
       {/* Top inset shadow bar (always visible) */}
       <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
 
@@ -43,7 +43,7 @@ const HelpHero = () => {
           transition={{ duration: 0.5 }}
           className="md:x-1/2 space-y-6 pb-6 text-left w-full max-w-[700px]"
         >
-          <h1 className="text-4xl md:text-[40px] font-bold leading-tight capitalize text-black overflow-hidden max-sm:px-4 max-md:pr-6 px-0 md:mt-[105px]">
+          <h1 className="text-4xl md:text-[40px] font-bold leading-tight capitalize md:pt-0 pt-10 text-black overflow-hidden max-sm:px-4 max-md:pr-6 px-0 md:mt-[105px]">
             <span className="text-[#2E2396]">We are committed </span> to serving
             the best interests of our clients
           </h1>
