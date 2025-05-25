@@ -64,9 +64,11 @@ const EarnSection = () => {
   };
 
   return (
-    <div className="bg-[#FBFBFB]">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-16 max-lg:py-12 relative">
-        <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
+    <div className="bg-[#FBFBFB] relative">
+      <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-16 max-lg:py-12 ">
+        
+
         {/* Header */}
         <div className="flex justify-between bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] border-gray-100 rounded-xl p-4 items-center mb-6">
           <h1 className="text-2xl md:text-3xl font-semibold text-[#362E94]">Earn</h1>
@@ -84,9 +86,9 @@ const EarnSection = () => {
         </div>
 
         {/* Product Title Row */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+        <div className="flex flex-row items-center justify-between mb-4 gap-4">
           <h2 className="text-lg font-semibold text-gray-700">Product</h2>
-          <div className="flex items-center gap-4 bg-white">
+          <div className="flex items-center gap-4">
             <div className="relative w-full max-w-[240px]">
               <input
                 type="text"
@@ -107,7 +109,7 @@ const EarnSection = () => {
 
         {/* Table */}
         <div ref={ref} className="overflow-x-auto rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
-          <table className="md:w-full w-[700px] text-sm rounded-xl px-5">
+          <table className="md:w-full w-[700px] text-sm sm:text-base rounded-xl px-5">
             <thead>
               <tr className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] bg-white text-gray-500">
                 <th className="py-6 px-4">#</th>
