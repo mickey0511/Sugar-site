@@ -53,7 +53,7 @@ const HeroCharity = () => {
             transition={{ duration: 0.5 }}
             className="2xl:w-[40vw] space-y-6 pb-6 text-left"
           >
-            <h1 className="text-4xl md:text-[45px] font-bold leading-tight text-black overflow-hidden lg:mb-10">
+            <h1 className="text-4xl md:text-[45px] font-bold leading-tight text-black overflow-hidden lg:mb-10 ">
               <span className="text-[#2E2396]">We Donate 5% </span> Of The
               Company&apos;s Profit To Charity Every Year.
             </h1>

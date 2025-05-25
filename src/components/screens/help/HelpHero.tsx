@@ -26,69 +26,41 @@ const HelpHero = () => {
   }, [isInView]);
 
   return (
-    <section className="relative w-full md:h-[90vh] md:pt-0 pt-20 bg-white overflow-hidden">
+    <section className="relative w-full md:h-[90vh] md:pt-0 pt-10 bg-white overflow-hidden">
       {/* Top inset shadow bar (always visible) */}
       <div className="absolute top-0 left-0 w-full h-full z-40 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)] pointer-events-none" />
-      
 
-      {/* Animated gradient background */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 2, ease: "easeInOut" }}
-        className="absolute inset-0 bg-gradient-to-r from-white to-[#f5f3ff] z-0"
-      />
 
-      {/* Desktop background image with proper responsive positioning */}
-     
-        <div className="absolute hidden md:block right-0 top-1/2 -translate-y-1/2 h-full w-full max-w-[55%] xl:max-w-[60%]">
-          <Image
-            src="/help.svg"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="right top"
-            priority
-          />
-        </div>      
 
       {/* Main content container */}
-      <div className="relative z-10 flex flex-col h-full justify-center px-6 md:px-20 xl:px-32">
+      <div className=" z-10 flex flex-row h-full justify-center pl-6 md:pl-10 xl:pl-32 max-sm:px-0">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl space-y-6 pb-6 text-left"
+          className="md:max-w-1/2 space-y-6 pb-6 text-left w-full "
         >
-          <h1 className="text-4xl md:text-[40px] font-bold leading-tight text-black overflow-hidden">
+          <h1 className="text-4xl md:text-[40px] font-bold leading-tight capitalize text-black overflow-hidden max-sm:px-4 max-md:pr-6 px-0 md:mt-[105px]">
             <span className="text-[#2E2396]">We are committed </span> to serving
             the best interests of our clients
           </h1>
 
           {/* Mobile hero image with responsive adjustments */}
-          <motion.div
-            initial={{ opacity: 0, y: 80, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{
-              duration: 1.2,
-              delay: 0.8,
-              ease: [0.16, 1, 0.3, 1],
-              scale: { type: "spring", stiffness: 100 },
-            }}
-            className="md:hidden w-full mt-10 px-4"
+          <div
+            className="min-md:hidden w-full mt-5 "
           >
             <Image
               src="/help.svg"
               alt="Mobile Hero Image"
-              width={800}
+              width={500}
               height={400}
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain "
               priority
             />
-          </motion.div>
+          </div>
 
-          <form action="" className="flex flex-col gap-4">
+          <form action="" className="flex flex-col gap-4 min-md:max-w-[80%] max-sm:px-4 max-md:mr-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="">First Name</label>
@@ -97,7 +69,7 @@ const HelpHero = () => {
                   placeholder="Type first name"
                   name=""
                   id=""
-                  className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
+                  className="w-full border border-gray-300 rounded-md p-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -107,7 +79,7 @@ const HelpHero = () => {
                   placeholder="Type last name"
                   name=""
                   id=""
-                  className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
+                  className="w-full border border-gray-300 rounded-md p-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
                 />
               </div>
             </div>
@@ -118,7 +90,7 @@ const HelpHero = () => {
                 placeholder="Type email"
                 name=""
                 id=""
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
+                className="w-full border border-gray-300 rounded-md p-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -129,34 +101,34 @@ const HelpHero = () => {
                 id=""
                 cols={30}
                 rows={5}
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
+                className="w-full border border-gray-300 bg-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#2E2396] transition duration-200"
               ></textarea>
             </div>
           </form>
-          <button     
-      className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-2 max-md:px-4 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78]`}
-    >
-      <span className="truncate">Send help</span>
-      <span className="w-8 h-8 max-md:size-6 bg-white rounded-full flex items-center justify-center">
-        <ArrowRight size={14} color={"#2E2396"} />
-      </span>
-    </button>
+          <button
+            className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-2 max-md:px-4 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78]`}
+          >
+            <span className="truncate">Send help</span>
+            <span className="w-8 h-8 max-md:size-6 bg-white rounded-full flex items-center justify-center">
+              <ArrowRight size={14} color={"#2E2396"} />
+            </span>
+          </button>
         </motion.div>
+        <div className="w-[50vw] h-full max-md:hidden">
+        <Image
+          src="/help.svg"
+          alt="Hero Image"
+          width={700}
+          height={500}
+          className="w-full h-full md:block hidden"
+          objectFit="contain"
+          objectPosition="right bottom"
+          priority
+        />
       </div>
+      </div>
+      
 
-      {/* Decorative animated elements */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[#6B5BD2] mix-blend-multiply filter blur-3xl opacity-0"
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
-        transition={{ duration: 2, delay: 0.7 }}
-        className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-[#2E2396] mix-blend-multiply filter blur-3xl opacity-0"
-      />
     </section>
   );
 };
