@@ -88,7 +88,7 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     className={`hover:text-[#2E2396] transition-colors duration-200 ${
-                      pathname === link.href ? "text-[#2E2396] font-semibold" : ""
+                      pathname === link.href ? "text-[#524cbb] font-semibold" : ""
                     }`}
                   >
                     {link.name}

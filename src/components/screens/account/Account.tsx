@@ -55,7 +55,7 @@ const AccountPage = () => {
 
   return (
     <div className="max-w-[1440px] px-4 sm:px-6 lg:px-20 mx-auto">
-      <h1 className="text-[#362E94] text-lg sm:text-xl font-medium mb-6 mt-10 max-sm:mt-6">My Account</h1>
+      <h1 className="text-[#362E94] text-lg sm:text-xl font-medium mb-6 mt-20 max-xl:mt-10 max-sm:mt-6">My Account</h1>
 
       <div className="bg-white rounded-[32px] shadow-[0_6px_16px_rgba(46,35,150,0.06)] p-6 sm:p-8 mb-10">
         <div className="flex flex-col items-center justify-center">
@@ -67,7 +67,7 @@ const AccountPage = () => {
       </div>
 
       {/* My Positions */}
-      <div className="mb-10">
+      <div className="mb-10 ">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg sm:text-xl font-semibold">My Positions</h2>
           <div className="flex gap-2 bg-[#F8F9FF] p-1 rounded-full">
@@ -172,7 +172,7 @@ const AccountPage = () => {
       </div>
 
       {/* Referrals */}
-      <div className="mb-10">
+      <div className="mb-10 sm:mb-15 lg:mb-20">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg sm:text-xl font-semibold">My Referral</h2>
           <div className="flex gap-2 bg-[#F8F9FF] p-1 rounded-full">

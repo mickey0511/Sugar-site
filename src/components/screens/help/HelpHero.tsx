@@ -44,7 +44,7 @@ const HelpHero = () => {
           className="md:x-1/2 space-y-6 pb-6 text-left w-full max-w-[700px]"
         >
           <h1 className="text-4xl md:text-[40px] font-bold leading-tight capitalize md:pt-0 pt-10 text-black overflow-hidden max-sm:px-4 max-md:pr-6 px-0 md:mt-[105px]">
-            <span className="text-[#2E2396]">We are committed </span> to serving
+            <span className="text-[#524cbb]">We are committed </span> to serving
             the best interests of our clients
           </h1>
 

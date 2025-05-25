@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
 
 const TeamSection: React.FC = () => {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-20">
+    <section className="py-6 sm:py-10 lg:py-20  px-4 sm:px-6 lg:px-20">
       <div className="max-w-screen-xl mx-auto">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-center mb-4">
           Meet The Team

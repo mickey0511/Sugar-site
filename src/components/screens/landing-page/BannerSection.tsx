@@ -67,7 +67,7 @@ const BannerSection = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={bannerVariants}
-          className="bg-[#5b55c6] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center"
+          className="bg-[#524cbb] text-white rounded-2xl overflow-hidden my-16 p-8 lg:p-16 flex flex-col lg:flex-row items-center"
         >
           {/* Text Content */}
           <motion.div
