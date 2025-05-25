@@ -12,8 +12,8 @@ const ReferralSection = () => {
   });
 
   return (
-    <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1280px] px-4 sm:px-6 lg:px-20 mx-auto">
+    <section className=" py-12 md:py-20 lg:py-24 bg-[#EFF3FF]">
+      <div className="max-w-[1440px] px-4 sm:px-6 lg:px-20 mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}

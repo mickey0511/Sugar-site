@@ -32,7 +32,7 @@ const CharityCards = () => {
 
   return (
     <section className="bg-[#F5F7FF] py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1440px] px-8 mx-auto">
+      <div className="max-w-[1440px] px-4 sm:px-6 lg:px-20 mx-auto">
  
 
         {/* Animated cards */}
@@ -41,7 +41,7 @@ const CharityCards = () => {
           variants={container}
           initial="hidden"
           animate={cardsInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 min-[1220px]:grid-cols-3 gap-8"
         >
           {/* LP Strategy Card */}
           <motion.div

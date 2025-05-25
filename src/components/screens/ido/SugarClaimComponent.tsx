@@ -10,6 +10,9 @@ import {
   UserCheck,
 } from "lucide-react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import {  useAppKit  } from '@reown/appkit/react'
+import ContextProvider from "@/app/context";
 
 const SugarClaimComponent = () => {
   const eligibilityItems = [
@@ -29,8 +32,10 @@ const SugarClaimComponent = () => {
       icon: <ChartCandlestick className="w-5 h-5" />,
     },
   ];
+  const { open } = useAppKit();
 
   return (
+    <ContextProvider>
     <section className="mb-[70px]">
       <div className="max-w-[1280px] w-full mx-auto ">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
@@ -86,13 +91,22 @@ const SugarClaimComponent = () => {
             </div>
 
             {/* Connect Wallet Button */}
-            <button className="bg-[#362E94] text-white px-6 py-3 rounded-full text-sm font-medium w-[160px] max-lg:w-full hover:bg-[#2a2370] transition-colors">
-              Connect Wallet
-            </button>
+            <div className="w-fit">
+    <button
+      onClick={()=>open()}
+      className="inline-flex w-auto items-center justify-between gap-2 pl-4 pr-2 py-2 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78] "
+    >
+      <span className="truncate">Connect Wallet</span>
+      <span className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+        <ArrowRight size={16} color="#2E2396" />
+      </span>
+    </button>
+    </div>
           </div>
         </div>
       </div>
     </section>
+    </ContextProvider>
   );
 };
 

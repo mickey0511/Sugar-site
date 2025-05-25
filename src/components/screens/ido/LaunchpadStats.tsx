@@ -19,7 +19,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[32px] font-bold">50,000</span>
+            <span className="text-[32px] max-[430px]:text-[28px] max-[390px]:text-[24px] font-bold">50,000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
@@ -37,7 +37,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center">
-            <span className="text-[32px] font-bold">10,000,000,000,000</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">10,000,000,000,000</span>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[32px] font-bold">50,000</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">50,000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
@@ -68,7 +68,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-[32px] font-bold">500,000,000,000</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">500,000,000,000</span>
             <span className="text-sm text-gray-500 ml-1">SUG</span>
           </div>
         </div>
@@ -79,7 +79,7 @@ const LaunchpadStats = () => {
             <span className="text-[#362E94] text-sm font-medium">FDV</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[32px] font-bold">1000000</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">1000000</span>
             <Image src="/earn/tether.svg" alt="USDT" width={20} height={20} />
           </div>
         </div>
@@ -118,7 +118,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center">
-            <span className="text-[32px] font-bold">5.00%</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">5.00%</span>
           </div>
         </div>
 
@@ -130,7 +130,7 @@ const LaunchpadStats = () => {
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-[32px] font-bold">0.0000001</span>
+            <span className="text-[32px] font-bold max-[430px]:text-[28px] max-[390px]:text-[24px]">0.0000001</span>
             <span className="text-sm text-gray-500 ml-1">USDT/SUG</span>
           </div>
         </div>

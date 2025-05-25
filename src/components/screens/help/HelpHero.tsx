@@ -2,7 +2,7 @@
 
 import { motion, useInView, stagger, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
-import RoundedIconButton from "@/components/ui/RoundedIconButton";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const HelpHero = () => {
@@ -39,13 +39,8 @@ const HelpHero = () => {
       />
 
       {/* Desktop background image with proper responsive positioning */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-        className="hidden md:block absolute top-0 right-0 w-full h-full z-0 pointer-events-none"
-      >
-        <div className="absolute right-0 top-0 h-full w-full max-w-[55%] xl:max-w-[60%]">
+     
+        <div className="absolute hidden md:block right-0 top-1/2 -translate-y-1/2 h-full w-full max-w-[55%] xl:max-w-[60%]">
           <Image
             src="/help.svg"
             alt="Hero Image"
@@ -54,8 +49,7 @@ const HelpHero = () => {
             objectPosition="right top"
             priority
           />
-        </div>
-      </motion.div>
+        </div>      
 
       {/* Main content container */}
       <div className="relative z-10 flex flex-col h-full justify-center px-6 md:px-20 xl:px-32">
@@ -138,7 +132,14 @@ const HelpHero = () => {
               ></textarea>
             </div>
           </form>
-          <RoundedIconButton text="Send help" />
+          <button     
+      className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-2 max-md:px-4 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78]`}
+    >
+      <span className="truncate">Send help</span>
+      <span className="w-8 h-8 max-md:size-6 bg-white rounded-full flex items-center justify-center">
+        <ArrowRight size={14} color={"#2E2396"} />
+      </span>
+    </button>
         </motion.div>
       </div>
 

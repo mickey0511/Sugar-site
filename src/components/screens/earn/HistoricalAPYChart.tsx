@@ -80,14 +80,14 @@ const chartSeries = [
 
 const HistoricalAPYChart = () => {
   return (
-    <section className="py-12 md:py-20 lg:py-24">
-      <div className="max-w-[1280px] px-4 sm:px-6 lg:px-20 mx-auto">
+    <section className="py-6 md:py-10 lg:py-12 bg-[#FBFBFB]">
+      <div className="max-w-[1440px] px-4 sm:px-6 lg:px-20 mx-auto">
         <div className="w-full flex flex-col items-center justify-center py-12">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-6"
+            className="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-12"
           >
             <span className="text-indigo-600">Historical</span> 60-Days APY
           </motion.h1>
@@ -103,7 +103,7 @@ const HistoricalAPYChart = () => {
               options={chartOptions}
               series={chartSeries}
               type="line"
-              height={350}
+              height={500}
             />
           </motion.div>
         </div>

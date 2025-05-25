@@ -17,6 +17,31 @@ type Product = {
   autoRenew: boolean;
 };
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      ease: "easeOut",
+      duration: 0.4,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "easeOut",
+      duration: 0.4,
+    },
+  },
+};
+
+
 const EarnSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -67,34 +92,34 @@ const EarnSection = () => {
   };
 
   // Animation variants
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  // const container = {
+  //   hidden: { opacity: 0 },
+  //   show: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.1,
+  //     },
+  //   },
+  // };
 
   const item = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 0.8 } },
-  };
+  // const fadeIn = {
+  //   hidden: { opacity: 0 },
+  //   show: { opacity: 1, transition: { duration: 0.8 } },
+  // };
 
-  return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-20 py-12">
+  return (<div className="bg-[#FBFBFB]">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-16 max-lg:py-12  ">
       {/* Header with animation */}
       <motion.div
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
         variants={item}
-        className="flex justify-between bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] p-4 items-center mb-6"
+        className="flex justify-between bg-white shadow-[0_6px_16px_rgba(46,35,150,0.06)] border-gray-100 rounded-xl p-4 items-center mb-6"
       >
         <h1 className="text-2xl md:text-3xl font-semibold text-[#362E94]">
           Earn
@@ -120,14 +145,14 @@ const EarnSection = () => {
         transition={{ delay: 0.1 }}
         className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4"
       >
-        <h2 className="text-lg font-semibold text-gray-700">Product</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-700">Product</h2>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 bg-white">
           <motion.div className="relative w-full max-w-[240px]">
             <input
               type="text"
               placeholder="Search"
-              className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#362E94] text-sm"
+              className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none bg-white focus:ring-2 focus:ring-[#362E94] text-sm"
             />
             <Search
               size={18}
@@ -143,24 +168,24 @@ const EarnSection = () => {
       </motion.div>
 
       {/* Table container */}
-      <div ref={ref} className="overflow-x-auto pb-4">
+      <div ref={ref} className="overflow-x-auto rounded-xl shadow-[0_6px_16px_rgba(46,35,150,0.06)]">
         <motion.table
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
           variants={container}
-          className="md:w-full w-[700px] text-sm"
+          className="md:w-full w-[700px] text-sm sm:text-base rounded-xl px-5 overflow-hidden"
         >
           <thead>
             <motion.tr
-              variants={fadeIn}
-              className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] text-gray-500"
+              variants={fadeInUp}
+              className="text-left shadow-[0_6px_16px_rgba(46,35,150,0.06)] bg-white text-gray-500"
             >
-              <th className="py-3 px-4">#</th>
-              <th className="py-3 px-4 text-start">Stake</th>
-              <th className="py-3 px-4 text-center">Duration</th>
-              <th className="py-3 px-4 text-center">APY</th>
-              <th className="py-3 px-4 text-center">TVL</th>
-              <th className="py-3 px-4"></th>
+              <th className="py-6 px-4">#</th>
+              <th className="py-6 px-4 text-start">Stake</th>
+              <th className="py-6 px-4 text-center">Duration</th>
+              <th className="py-6 px-4 text-center">APY</th>
+              <th className="py-6 px-4 text-center">TVL</th>
+              <th className="py-6 px-4"></th>
             </motion.tr>
           </thead>
           <tbody>
@@ -169,25 +194,25 @@ const EarnSection = () => {
                 key={index}
                 variants={item}
                 transition={{ delay: 0.2 }}
-                className="shadow-[0_6px_16px_rgba(46,35,150,0.06)] rounded-xl my-4"
+                className=" bg-white border-t-gray-100 border-t-4"
               >
-                <td className="py-4 px-4 text-start">{product.id}</td>
-                <td className="py-4 px-4 flex items-center justify-start gap-2 font-medium">
+                <td className="py-4 pl-6 text-start">{product.id}</td>
+                <td className="py-4 px-4  font-medium ">
                   <Image
                     width={50}
                     height={50}
                     src="/earn/tether.svg"
                     alt="USDT"
-                    className="w-5 h-5"
+                    className="w-5 h-5 inline-block mr-2"
                   />
                   {product.name}
                 </td>
-                <td className="py-4 px-4 text-center">{product.duration}</td>
-                <td className="py-4 px-4 font-semibold text-center">
+                <td className="py-6 px-4 text-center">{product.duration}</td>
+                <td className="py-6 px-4 font-semibold text-center">
                   {product.apy}
                 </td>
-                <td className="py-4 px-4 text-center">{product.tvl}</td>
-                <td className="py-4 px-4 text-end flex items-center justify-end gap-4">
+                <td className="py-6 px-4 text-center">{product.tvl}</td>
+                <td className="py-6 px-4 text-end flex items-center justify-end gap-4">
                   <div className="flex items-center justify-center gap-2">
                     <span
                       className={`text-sm ${
@@ -242,6 +267,7 @@ const EarnSection = () => {
           </tbody>
         </motion.table>
       </div>
+    </div>
     </div>
   );
 };

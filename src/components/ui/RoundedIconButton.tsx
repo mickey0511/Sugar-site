@@ -36,7 +36,7 @@ const RoundedIconButton: React.FC<RoundedIconButtonProps> = ({
     <ContextProvider>
     <button
       onClick={()=>open()}
-      className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-1 max-md:pr-2 max-md:pl-2 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78] ${className}`}
+      className={`flex items-center justify-between gap-2 pl-4 pr-2 py-2 max-md:py-1 max-md:px-2 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78] ${className}`}
     >
       <span className="truncate">{text}</span>
       <span className="w-8 h-8 max-md:size-6 bg-white rounded-full flex items-center justify-center">
