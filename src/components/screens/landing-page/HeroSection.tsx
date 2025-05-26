@@ -2,8 +2,9 @@
 
 import { motion, useInView, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
-import RoundedIconButton from "@/components/ui/RoundedIconButton";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { useAppKit } from '@reown/appkit/react';
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -19,6 +20,7 @@ const HeroSection = () => {
       );
     }
   }, [isInView]);
+    const { open } = useAppKit();
 
   return (
     <div className="relative w-full bg-white overflow-hidden">
@@ -32,9 +34,9 @@ const HeroSection = () => {
           priority
         />
       </div>
-      <div className="absolute w-full h-full z-50 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)]"></div>
+      <div className="absolute w-full h-full z-10 shadow-[inset_0_6px_16px_rgba(46,35,150,0.06)]"></div>
 
-      <section className="relative w-full min-h-[90vh] pt-[18vh] max-md:pt-[7vh]">
+      <section className="relative w-full min-h-[90vh] pt-[18vh] max-lg:pt-[7vh]">
         {/* Background gradient overlay */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -90,7 +92,16 @@ const HeroSection = () => {
               transition={{ duration: 1, delay: 1.4, type: "spring", stiffness: 80 }}
               className="pt-2"
             >
-              <RoundedIconButton text="Experience Now" className="mt-7"/>
+                <button
+        onClick={() => open()}
+        className="flex items-center justify-between gap-3 hover:cursor-pointer px-4 py-2 md:px-4 sm:py-3  z-100 max-md:px-3 rounded-full bg-[#2E2396] text-white font-medium transition hover:bg-[#241b78] $"
+      
+      >
+        <span className="truncate text-xl md:text-2xl ">Experience Now</span>
+        <span className=" w-9 h-9 sm:w-10 sm:h-10 max-[500px]: bg-white rounded-full flex items-center justify-center">
+          <ArrowRight size={24} color="#2E2396" />
+        </span>
+      </button>
             </motion.div>
           </motion.div>
 
