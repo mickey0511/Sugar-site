@@ -24,6 +24,7 @@ export default function Home() {
       <EarningsCalculator />
       
       <WhySugarMarquee />
+      
       <InfoSectionProps
         title="World"
         subtitle="high Yield"
@@ -51,8 +52,9 @@ mishaps."
         imageSrc="/hero/3rd-props.svg"
         reverse={false}
       />
-<BannerSection />
       <InstitutionalStrategy />
+<BannerSection />
+      
       <FAQSection />
       <Footer />
       
