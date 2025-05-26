@@ -12,7 +12,6 @@ import {
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import {  useAppKit  } from '@reown/appkit/react'
-import ContextProvider from "@/app/context";
 
 const SugarClaimComponent = () => {
   const eligibilityItems = [
