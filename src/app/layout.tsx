@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import "./globals.css";
 import ContextProvider from "./context";
 
+
 const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
@@ -21,9 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <ContextProvider>
-    <html lang="en">
-      <body className={`${archivo.className} antialiased`}>{children}</body>
-    </html>
+      <html lang="en">
+        <body className={`${archivo.className} antialiased`}>
+          {children}
+        </body>
+      </html>
     </ContextProvider>
   );
 }

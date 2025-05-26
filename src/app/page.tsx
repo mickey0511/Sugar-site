@@ -9,9 +9,11 @@ import Footer from "@/components/ui/Footer";
 import InfoSectionProps from "@/components/ui/InfoSectionProps";
 import Navbar from "@/components/ui/Navbar";
 import Image from "next/image";
+import ProtectedLayout from "./ProtectedLayout";
 
 export default function Home() {
   return (
+    <ProtectedLayout>
     <div className="overflow-x-hidden">
       <div className="relative">
       <Navbar />
@@ -53,6 +55,8 @@ mishaps."
       <InstitutionalStrategy />
       <FAQSection />
       <Footer />
+      
     </div>
+    </ProtectedLayout>
   );
 }
