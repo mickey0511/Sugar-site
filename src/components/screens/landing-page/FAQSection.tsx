@@ -27,7 +27,6 @@ const FAQItem = ({
           : "hover:bg-gray-50 border border-gray-200"
       }`}
     
-      whileHover={{ scale: isActive ? 1 : 1.02 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >
       <div className="flex justify-between items-center">

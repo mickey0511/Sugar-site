@@ -75,7 +75,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
           {/* Text Content */}
           <motion.div
             variants={containerVariants}
-            className="w-full lg:w-1/2 space-y-4 md:space-y-6"
+            className="w-full lg:w-3/5 space-y-4 md:space-y-6"
           >
             <motion.h2
               variants={textVariants}
@@ -97,7 +97,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
           {/* Image */}
           <motion.div
             variants={imageVariants}
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-2/5"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >

@@ -8,8 +8,8 @@ const WhySugarMarquee = () => {
   return (
     <section className="bg-[#524cbb] py-12 max-xl:py-10 max-md:py-8 overflow-hidden relative">
       <div className="text-center mb-6 max-xl:mb-4 max-md:mb-3">
-        <h3 className="text-2xl max-xl:text-xl font-semibold text-gray-800 uppercase">
-          Better Way To <span className="text-purple-600">Earn</span>
+        <h3 className="text-2xl max-xl:text-xl font-semibold text-[#fc8220] uppercase">
+          Better Way To <span className="text-white">Earn</span>
         </h3>
       </div>
 

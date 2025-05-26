@@ -68,7 +68,7 @@ export default function EarningsCalculator() {
                 <h2 className="text-base sm:text-lg font-semibold">Enter Staking Amount</h2>
                 <div className="flex items-center gap-3 bg-[#F8F9FF] rounded-full p-1.5">
                   <span className={`text-xs px-3 py-1.5 rounded-full transition-colors duration-200 ${
-                    !isETH ? "text-[#6B5BD2] font-medium" : "text-gray-500"
+                    !isETH ? "text-[#362E94] font-medium" : "text-gray-500"
                   }`}>
                     USD
                   </span>
@@ -84,18 +84,18 @@ export default function EarningsCalculator() {
                   </span>
                 </div>
               </div>
-              <div className="flex">
-                <div className="bg-[#F8F9FF] flex items-center justify-center px-4 rounded-l-2xl border-0">
-                  <span className="text-gray-500">{isETH ? "Ξ" : "$"}</span>
+              <div className="flex border-[#9f9ecf] border-1 rounded-xl">
+                <div className="bg-[#F8F9FF] flex items-center justify-center px-4 rounded-2xl  border-[#9f9ecf] border-r-1">
+                  <span className="text-[#362E94] text-[24px]">{isETH ? "Ξ" : "$"}</span>
                 </div>
                 <Input
                   type="number"
                   value={stakingAmount}
                   onChange={(e) => setStakingAmount(Number(e.target.value))}
-                  className="rounded-l-none rounded-r-2xl border-0 bg-[#F8F9FF] h-12 text-[#6B5BD2] font-medium text-lg focus:ring-0 focus:outline-none"
+                  className="rounded-l-none rounded-r-2xl border-0 bg-[#F8F9FF] h-12 text-black font-medium text-2xl focus:ring-0 focus:outline-none"
                 />
               </div>
-              <div className="text-right text-xs text-gray-500 mt-2">
+              <div className="text-right text-sm text-gray-500 mt-2">
                 {isETH 
                   ? `$${(stakingAmount * ethRate).toFixed(2)}`
                   : `${(stakingAmount / ethRate).toFixed(5)} ETH`
@@ -110,17 +110,17 @@ export default function EarningsCalculator() {
                 { label: "180-Days Earnings", value: earnings.days180 },
                 { label: "365-Days Earnings", value: earnings.days365 },
               ].map((item, index) => (
-                <div key={index}>
+                <div key={index} className="border-[#e6e6e6] border-1 p-[10px] rounded-xl">
                   <Label className="text-sm font-medium">{item.label}</Label>
-                  <div className="flex mt-1">
-                    <div className="bg-[#F8F9FF] flex items-center justify-center px-4 rounded-l-2xl border-0">
-                      <span className="text-gray-500">$</span>
+                  <div className="flex mt-1 border-[#9f9ecf] border-1 rounded-xl">
+                    <div className="bg-[#F8F9FF] flex items-center justify-center px-4 rounded-l-2xl border-[#9f9ecf] border-r-1 rounded-xl">
+                      <span className="text-[#362E94] text-[24px]">$</span>
                     </div>
                     <Input
                       type="text"
                       value={formatCurrency(item.value)}
                       readOnly
-                      className="rounded-l-none rounded-r-2xl border-0 bg-[#F8F9FF] h-12 text-[#6B5BD2] font-medium text-lg focus:ring-0 focus:outline-none"
+                      className="rounded-l-none rounded-r-2xl border-0 bg-[#F8F9FF] h-12 text-black font-medium text-2xl focus:ring-0 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function EarningsCalculator() {
                   </svg>
                 </button> */}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="grid max-[1400px]:grid-cols-1 max-[830px]:grid-cols-1 max-[1024px]:grid-cols-2 grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <Label className="text-xs sm:text-sm text-gray-500 mb-2 block">
                     Expected Price After 1 Month
@@ -149,18 +149,21 @@ export default function EarningsCalculator() {
                     type="number"
                     value={expectedPrice}
                     onChange={(e) => setExpectedPrice(Number(e.target.value))}
-                    className="rounded-xl sm:rounded-2xl border-0 bg-[#F8F9FF] h-10 sm:h-12"
+                    className="sm:rounded-2xl bg-[#F8F9FF] h-10 sm:h-12 border-[#9f9ecf] border-1 rounded-xl"
                   />
                 </div>
                 <div>
                   <Label className="text-xs sm:text-sm text-gray-500 mb-2 block">Staking Time</Label>
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                  <div className="grid grid-cols-3 gap-10 sm:gap-3">
                     {[
                       { value: stakingTime.years, unit: "y", max: undefined },
-                      { value: stakingTime.months, unit: "m", max: 11 },
-                      { value: stakingTime.days, unit: "d", max: 30 },
+                      { value: stakingTime.months, unit: "m", max: 12 },
+                      { value: stakingTime.days, unit: "d", max: 31 },
                     ].map((item, index) => (
-                      <div key={index} className="flex items-center">
+                      <div key={index} className="flex justify-center items-center border-[#9f9ecf] border-1 rounded-xl bg-[#F8F9FF]">
+                        <div className="bg-[#F8F9FF]  h-full flex items-center justify-center px-4 rounded-l-2xl border-[#9f9ecf] border-r-1 rounded-xl">
+                      <span className="text-black text-lg">{item.unit}</span>
+                    </div>
                         <Input
                           type="number"
                           value={item.value}
@@ -170,11 +173,11 @@ export default function EarningsCalculator() {
                               [["years", "months", "days"][index]]: Number(e.target.value),
                             })
                           }
-                          className="text-center rounded-2xl border-0 bg-[#F8F9FF] h-12"
+                          className="text-center  h-12 border-0"
                           min={0}
                           max={item.max}
                         />
-                        <span className="ml-2 text-sm text-gray-500">{item.unit}</span>
+                        
                       </div>
                     ))}
                   </div>
