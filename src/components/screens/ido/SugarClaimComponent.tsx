@@ -35,7 +35,7 @@ const SugarClaimComponent = () => {
   const { open } = useAppKit();
 
   return (
-    <ContextProvider>
+    
     <section className="mb-[70px]">
       <div className="max-w-[1280px] w-full mx-auto ">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
@@ -106,7 +106,7 @@ const SugarClaimComponent = () => {
         </div>
       </div>
     </section>
-    </ContextProvider>
+   
   );
 };
 

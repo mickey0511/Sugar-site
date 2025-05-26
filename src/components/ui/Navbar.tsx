@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Menu, X, Wallet } from "lucide-react";
 import RoundedIconButton from "./RoundedIconButton";
 import LanguageSelector from "./LanguageSelector";
+import { useAppKitAccount } from "@reown/appkit/react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -19,6 +20,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { isConnected} = useAppKitAccount();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
@@ -84,12 +86,11 @@ const Navbar = () => {
             {/* Desktop nav */}
             <ul className="hidden min-[1170px]:flex gap-7 max-[1440px]:gap-5 text-[clamp(0.8rem,2vw,1.1rem)] z-40 font-medium font-poppins text-black">
               {navLinks.map((link, id) => (
-                <li key={id}>
+                (!isConnected && link.href !== '/account' || isConnected) && <li key={id}>
                   <Link
                     href={link.href}
-                    className={`hover:text-[#2E2396] transition-colors duration-200 ${
-                      pathname === link.href ? "text-[#524cbb] font-semibold" : ""
-                    }`}
+                    className={`hover:text-[#2E2396] transition-colors duration-200 ${pathname === link.href ? "text-[#524cbb] font-semibold" : ""
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -112,35 +113,34 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu drawer */}
-     <div
-  ref={menuRef}
-  className={`min-[1170px]:hidden fixed top-[10vh] z-100 max-md:top-[7vh] left-0 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100
+      <div
+        ref={menuRef}
+        className={`min-[1170px]:hidden fixed top-[10vh] z-100 max-md:top-[7vh] left-0 w-[200px] bg-white rounded-br-[30px] shadow-md border-t border-gray-100
     transition-transform duration-300 ease-in-out
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
   `}
->
-  <ul className="flex flex-col px-6 py-4 gap-5 z-100 text-base font-medium text-gray-700">
-    {navLinks.map((link, id) => {
-      const isActive = pathname === link.href;
-      return (
-        <li key={id}>
-          <Link
-            href={link.href}
-            onClick={() => setIsOpen(false)}
-            aria-current={isActive ? "page" : undefined}
-            className={`block py-1 transition-colors duration-200 hover:text-[#2E2396] hover:underline underline-offset-4 ${
-              isActive
-                ? "text-[#2E2396] font-bold text-lg"
-                : ""
-            }`}
-          >
-            {link.name}
-          </Link>
-        </li>
-      );
-    })}
-  </ul>
-</div>
+      >
+        <ul className="flex flex-col px-6 py-4 gap-5 z-100 text-base font-medium text-gray-700">
+          {navLinks.map((link, id) => {
+            const isActive = pathname === link.href;
+            return (
+              (!isConnected && link.href !== '/account' || isConnected) && <li key={id}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`block py-1 transition-colors duration-200 hover:text-[#2E2396] hover:underline underline-offset-4 ${isActive
+                    ? "text-[#2E2396] font-bold text-lg"
+                    : ""
+                    }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </header>
   );
 };

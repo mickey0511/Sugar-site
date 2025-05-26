@@ -31,7 +31,7 @@ const LanguageSelector = () => {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="flex items-center gap-2 pl-4 pr-2 py-2 max-md:py-1 max-md:pr-2 max-md:pl-2 bg-[#2E2396] text-white rounded-full text-sm font-medium"
+        className="flex items-center gap-2 pl-4 pr-2 py-2 max-md:py-1 max-md:pr-2 max-md:pl-2 bg-[#2E2396] text-white rounded-full text-sm text-[clamp(0.75rem,2vw,1rem)] font-medium"
       >
         {selected.label}
         <Image
@@ -47,7 +47,7 @@ const LanguageSelector = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 bg-white rounded shadow-lg z-10 py-2 text-sm w-32">
+        <div className="absolute right-0 mt-2 bg-white rounded shadow-lg z-10 py-2 text-sm  w-32">
           {languages.map((lang) => (
             <button
               key={lang.code}
