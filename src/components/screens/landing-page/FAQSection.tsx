@@ -2,7 +2,7 @@
 
 import { Minus, Plus } from "lucide-react";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const FAQItem = ({
@@ -26,7 +26,6 @@ const FAQItem = ({
           ? "bg-[#524cbb] border-transparent"
           : "hover:bg-gray-50 border border-gray-200"
       }`}
-    
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >
       <div className="flex justify-between items-center">
@@ -48,17 +47,21 @@ const FAQItem = ({
           {isActive ? <Minus size={20} /> : <Plus size={20} />}
         </motion.div>
       </div>
-      {isActive && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mt-3 md:mt-4 text-white text-sm md:text-base overflow-hidden"
-        >
-          {typeof answer === "string" ? <p>{answer}</p> : answer}
-        </motion.div>
-      )}
+
+      <AnimatePresence initial={false}>
+        {isActive && (
+          <motion.div
+            key="faq-content"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-3 md:mt-4 text-white text-sm md:text-base overflow-hidden"
+          >
+            {typeof answer === "string" ? <p>{answer}</p> : answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
